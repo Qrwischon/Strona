@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dla Projektantów - ATTech</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #0ea5e9;
+            --accent-hover: #0284c7;
+            --card-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem 2rem;
+        }
+
+        /* --- STYL NAWIGACJI --- */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+            .logo .plus {
+                color: var(--accent-color);
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+            nav a:hover {
+                color: var(--accent-color);
+            }
+
+        /* Przycisk zmiany języka */
+        .lang-switch {
+            border: 1px solid var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+            .lang-switch:hover {
+                background-color: var(--accent-color);
+                color: white;
+                box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+            }
+        /* ---------------------- */
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        /* --- STYL SUWAKA PRZED/PO --- */
+        .comparison-slider {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            height: 450px;
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background-color: transparent;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .img-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('Ramka3-bg.png') center/contain no-repeat;
+            clip-path: inset(0 0 0 50%);
+            will-change: clip-path;
+        }
+
+        .img-after {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('gira-przed_enchanced.jpg') center/contain no-repeat;
+            transition: background-image 0.3s ease-in-out;
+            clip-path: inset(0 50% 0 0);
+            will-change: clip-path;
+        }
+
+        .slider-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background-color: white;
+            transform: translateX(-50%);
+            pointer-events: none;
+        }
+
+            .slider-handle::after {
+                content: '↔';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 40px;
+                height: 40px;
+                background-color: var(--accent-color);
+                border-radius: 50%;
+                color: white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                font-weight: bold;
+                box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            }
+
+        .slider-input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: ew-resize;
+            margin: 0;
+            z-index: 10;
+        }
+
+        .manufacturer-options {
+            text-align: center;
+            margin-bottom: 3rem;
+            width: 100%;
+            max-width: 900px;
+        }
+
+            .manufacturer-options p {
+                color: #94a3b8;
+                margin-bottom: 1rem;
+                font-size: 1.1rem;
+            }
+
+        .btn-style {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid var(--accent-color);
+            padding: 0.6rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1rem;
+        }
+
+            .btn-style:hover, .btn-style.active {
+                background-color: var(--accent-color);
+                color: white;
+            }
+
+        .content-box {
+            max-width: 900px;
+            text-align: left;
+        }
+
+            .content-box p {
+                color: #94a3b8;
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+                line-height: 1.7;
+            }
+
+        ul.features {
+            color: #94a3b8;
+            margin-bottom: 2rem;
+            padding-left: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+            ul.features li {
+                margin-bottom: 1rem;
+            }
+
+                ul.features li strong {
+                    color: var(--text-color);
+                }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+            .btn:hover {
+                background-color: var(--accent-hover);
+            }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .comparison-slider {
+                height: 250px;
+            }
+
+            .btn-style {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Strona Główna</a></li>
+                <li><a href="index.html#services">Oferta</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="Designer.html" class="lang-switch">PL</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="comparison-slider">
+        <div class="img-before"></div>
+        <div class="img-after"></div>
+        <div class="slider-handle"></div>
+        <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Porównaj zdjęcia">
+    </div>
+
+    <div class="manufacturer-options">
+        <p>Sprawdź, jak może wyglądać Twoja ściana z różnymi producentami osprzętu KNX:</p>
+        <button class="btn-style active" data-img="url('gira-przed_enchanced.jpg')">Gira</button>
+        <button class="btn-style" data-img="url('Basalte-bg.png')">Basalte</button>
+        <button class="btn-style" data-img="url('jung_enchanced.jpg')">Jung</button>
+        <button class="btn-style" data-img="url('Ekinex-bg.png')">Ekinex</button>
+    </div>
+
+    <h1>Współpraca z Projektantami Wnętrz</h1>
+
+    <div class="content-box">
+        <p>Technologia Smart Home to nie tylko wygoda dla inwestora, ale także potężne narzędzie w rękach architekta. Wspólnie możemy zredukować chaos instalacyjny na ścianach i zastąpić go minimalistyczną elegancją, która idealnie wpisze się w Twoją wizję wnętrza.</p>
+
+        <ul class="features">
+            <li><strong>Koniec z "klawiaturami" na ścianach:</strong> Zamiast rzędów pięciu czy sześciu tradycyjnych włączników w nieestetycznych, wielokrotnych ramkach, stosujemy jeden, zintegrowany panel sterujący. Jeden elegancki przycisk potrafi zarządzać oświetleniem, roletami, klimatyzacją i scenami świetlnymi.</li>
+            <li><strong>Ekskluzywny design i materiały:</strong> Inteligentne włączniki dostępne są w najwyższej jakości wykończeniach – od szczotkowanego aluminium i szkła, po mosiądz, kamień czy naturalne drewno. Dzięki temu osprzęt elektryczny staje się ozdobą, a nie koniecznością.</li>
+            <li><strong>Czyste ściany:</strong> Termostaty, czujniki temperatury i sensory ruchu możemy zamaskować lub zintegrować bezpośrednio we włącznikach, pozostawiając przestrzeń maksymalnie czystą i spójną.</li>
+        </ul>
+    </div>
+
+    <a href="index.html" class="btn">Wróć na stronę główną</a>
+
+    <script>
+        const sliderInput = document.querySelector('.slider-input');
+        const imgBefore = document.querySelector('.img-before');
+        const imgAfter = document.querySelector('.img-after');
+        const sliderHandle = document.querySelector('.slider-handle');
+
+        sliderInput.addEventListener('input', (e) => {
+            const sliderValue = e.target.value;
+            imgAfter.style.clipPath = `inset(0 calc(100% - ${sliderValue}%) 0 0)`;
+            imgBefore.style.clipPath = `inset(0 0 0 ${sliderValue}%)`;
+            sliderHandle.style.left = `${sliderValue}%`;
+        });
+
+        const buttons = document.querySelectorAll('.btn-style');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                const newImage = button.getAttribute('data-img');
+                imgAfter.style.backgroundImage = newImage;
+            });
+        });
+    </script>
+
+</body>
+</html>

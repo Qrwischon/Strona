@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Współpraca B2B - ATTech</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #0ea5e9;
+            --accent-hover: #0284c7;
+            --card-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem 2rem;
+        }
+
+        /* --- STYL NAWIGACJI --- */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+            .logo .plus {
+                color: var(--accent-color);
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+            nav a:hover {
+                color: var(--accent-color);
+            }
+
+        /* Przycisk zmiany języka */
+        .lang-switch {
+            border: 1px solid var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+            .lang-switch:hover {
+                background-color: var(--accent-color);
+                color: white;
+                box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+            }
+        /* ---------------------- */
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .intro {
+            color: #94a3b8;
+            max-width: 800px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .b2b-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 3rem;
+        }
+
+        .b2b-card {
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .b2b-card::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 4px;
+                background-color: var(--accent-color);
+            }
+
+            .b2b-card h2 {
+                color: var(--text-color);
+                margin-bottom: 1rem;
+                font-size: 1.8rem;
+            }
+
+            .b2b-card p {
+                color: #94a3b8;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+        ul.benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+            ul.benefits li {
+                color: #e2e8f0;
+                margin-bottom: 0.8rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+                ul.benefits li::before {
+                    content: '✓';
+                    color: var(--accent-color);
+                    position: absolute;
+                    left: 0;
+                    font-weight: bold;
+                }
+
+        .support-section {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(14, 165, 233, 0.05);
+            border: 1px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .support-text {
+            flex: 1;
+        }
+
+            .support-text h3 {
+                color: var(--accent-color);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .support-text p {
+                color: #94a3b8;
+                line-height: 1.6;
+            }
+
+        .support-image {
+            flex: 1;
+            height: 200px;
+            background: url('https://placehold.co/500x300/1e293b/f8fafc?text=Schemat+Topologii+KNX') center/cover no-repeat;
+            border-radius: 8px;
+            border: 1px solid #334155;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+            .btn:hover {
+                background-color: var(--accent-hover);
+            }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .b2b-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .support-section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .support-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Strona Główna</a></li>
+                <li><a href="index.html#services">Oferta</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="Integration-en.html" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Współpraca dla Profesjonalistów</h1>
+    <p class="intro">Zarabiaj więcej na nowoczesnych instalacjach bez konieczności spędzania godzin przed komputerem. Ty wykonujesz okablowanie i montaż, my dostarczamy projekt, sprzęt i zajmujemy się programowaniem.</p>
+
+    <div class="b2b-grid">
+        <div class="b2b-card">
+            <h2>Dla Instalatorów</h2>
+            <p>Rozszerz swoją ofertę o zaawansowane systemy KNX i Smart Home. Nie musisz być programistą, aby realizować inteligentne instalacje dla swoich klientów.</p>
+            <ul class="benefits">
+                <li>Jasny podział prac: Ty kładziesz kable, my programujemy.</li>
+                <li>Dostarczamy gotowe schematy i wytyczne kablowe.</li>
+                <li>Wsparcie techniczne na każdym etapie budowy.</li>
+                <li>Atrakcyjny model prowizyjny za polecenie.</li>
+            </ul>
+        </div>
+
+        <div class="b2b-card">
+            <h2>Dla Deweloperów</h2>
+            <p>Zwiększ prestiż i wartość rynkową swojej inwestycji. Klienci premium oczekują dziś czegoś więcej niż standardowej instalacji elektrycznej.</p>
+            <ul class="benefits">
+                <li>Pakiety "Smart Home Ready" w standardzie deweloperskim.</li>
+                <li>Przygotowanie infrastruktury pod przyszłą rozbudowę.</li>
+                <li>Wyróżnienie Twojej inwestycji na tle konkurencji.</li>
+                <li>Możliwość oferowania płatnych "pakietów rozszerzeń".</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="support-section">
+        <div class="support-text">
+            <h3>Pełna Dokumentacja i Wytyczne</h3>
+            <p>Najważniejszym etapem inteligentnej instalacji jest prawidłowe położenie okablowania. Dostarczamy czytelne schematy, projekty rozdzielnic oraz wytyczne topologii magistrali KNX. Odpowiemy na pytania Twojej ekipy budowlanej, by uniknąć kosztownych błędów przed wylaniem posadzek i nałożeniem tynków.</p>
+        </div>
+        <div class="support-image"></div>
+    </div>
+
+    <a href="index.html" class="btn">Wróć na stronę główną</a>
+
+</body>
+</html>

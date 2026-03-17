@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twój Smart Home - ATTech</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --text-color: #f8fafc;
+            --accent-color: #0ea5e9;
+            --accent-hover: #0284c7;
+            --card-bg: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem 2rem;
+        }
+
+        /* --- STYL NAWIGACJI --- */
+        header {
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+            .logo .plus {
+                color: var(--accent-color);
+            }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1.05rem;
+        }
+
+            nav a:hover {
+                color: var(--accent-color);
+            }
+
+        /* Przycisk zmiany języka */
+        .lang-switch {
+            border: 1px solid var(--accent-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+            .lang-switch:hover {
+                background-color: var(--accent-color);
+                color: white;
+                box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
+            }
+        /* ---------------------- */
+
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+
+        .intro {
+            color: #94a3b8;
+            max-width: 800px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin-bottom: 3rem;
+            width: 100%;
+        }
+
+        .feature-card {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+            .feature-card:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-color);
+            }
+
+            .feature-card h3 {
+                color: var(--text-color);
+                margin-bottom: 1rem;
+                font-size: 1.3rem;
+                display: flex;
+                align-items: center;
+            }
+
+                .feature-card h3 span {
+                    color: var(--accent-color);
+                    margin-right: 10px;
+                    font-size: 1.5rem;
+                }
+
+            .feature-card p {
+                color: #94a3b8;
+                line-height: 1.6;
+            }
+
+        .tablet-section {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            margin-bottom: 4rem;
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            border: 1px solid #334155;
+        }
+
+            .tablet-section h2 {
+                margin-bottom: 1rem;
+                color: var(--text-color);
+                font-size: 2rem;
+            }
+
+            .tablet-section p {
+                color: #94a3b8;
+                margin-bottom: 2rem;
+                font-size: 1.1rem;
+                max-width: 700px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .tablet-image-placeholder {
+            width: 100%;
+            height: 450px;
+            background: url('Images/Panel-bg.png') center/cover no-repeat;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+            .btn:hover {
+                background-color: var(--accent-hover);
+            }
+
+        /* Responsywność */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            .tablet-section {
+                padding: 2rem 1rem;
+            }
+
+            .tablet-image-placeholder {
+                height: 250px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
+        <nav>
+            <ul>
+                <li><a href="index.html#home">Strona Główna</a></li>
+                <li><a href="index.html#services">Oferta</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="Automation-en.html" class="lang-switch">EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1>Twój Dom Szyty na Miarę</h1>
+    <p class="intro">System KNX to światowy standard zarządzania budynkiem, gwarantujący niezawodność na lata. Zapomnij o codziennej rutynie – pozwól, by Twój dom samodzielnie reagował na Twoje potrzeby, porę dnia i warunki pogodowe.</p>
+
+    <div class="features-grid">
+        <div class="feature-card">
+            <h3><span>✦</span> Sceny i Scenariusze</h3>
+            <p>Uruchom idealne warunki jednym kliknięciem. Scena "Kino" opuści rolety, przyciemni światło i dostosuje temperaturę. Wychodzisz z domu? Scena "Wyjście" wyłączy wszystkie światła, odetnie wybrane gniazdka i uzbroi alarm.</p>
+        </div>
+        <div class="feature-card">
+            <h3><span>☀</span> Zależność od Pogody</h3>
+            <p>Stacja pogodowa KNX na dachu dba o Twój komfort i portfel. Analizuje kąt padania słońca i siłę wiatru. Latem żaluzje zamkną się, by chronić wnętrze przed nagrzaniem, a zimą wpuszczą słońce, by darmowo dogrzać salon.</p>
+        </div>
+        <div class="feature-card">
+            <h3><span>⏱</span> Harmonogramy Czasowe</h3>
+            <p>Dostosuj dom do swojego rytmu. O 7:00 rano rolety w sypialni mogą podnosić się delikatnie razem z promieniami słońca, podczas gdy podłoga w łazience będzie już czekać przyjemnie ciepła.</p>
+        </div>
+    </div>
+
+    <div class="tablet-section">
+        <h2>Pełna kontrola w jednym miejscu</h2>
+        <p>Wszystkie parametry domu – od temperatury i wentylacji, po oświetlenie i pozycję żaluzji – masz zawsze pod ręką. Steruj domem z eleganckiego, dotykowego ekranu zamontowanego w centralnym punkcie domu.</p>
+        <div class="tablet-image-placeholder"></div>
+    </div>
+
+    <a href="index.html" class="btn">Wróć na stronę główną</a>
+
+</body>
+</html>
