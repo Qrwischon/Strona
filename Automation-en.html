@@ -179,7 +179,7 @@
         .tablet-image-placeholder {
             width: 100%;
             height: 450px;
-            background: url('https://placehold.co/900x450/334155/f8fafc?text=Ekran+Centralnego+Tabletu+KNX') center/cover no-repeat;
+            background: url('Images/Panel-bg.png') center/cover no-repeat;
             border-radius: 8px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
@@ -199,6 +199,58 @@
             .btn:hover {
                 background-color: var(--accent-hover);
             }
+
+        .contact {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: #0f172a;
+            border-top: 1px solid #0f172a;
+        }
+
+            .contact h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--accent-color);
+            }
+
+            .contact p.desc {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+                color: #94a3b8;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            min-width: 250px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+            .contact-item:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-color);
+            }
+
+            .contact-item h4 {
+                color: var(--accent-color);
+                margin-bottom: 0.8rem;
+                font-size: 1.2rem;
+            }
+
+
 
         /* Responsywność */
         @media (max-width: 768px) {
@@ -228,13 +280,13 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
+        <a href="index-en.html" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul>
-                <li><a href="index.html#home">Strona Główna</a></li>
-                <li><a href="index.html#services">Oferta</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
-                <li><a href="Automation.html" class="lang-switch">PL</a></li>
+                <li><a href="index-en.html#home">Strona Główna</a></li>
+                <li><a href="index-en.html#services">Oferta</a></li>
+                <li><a href="index-en.html#contact">Kontakt</a></li>
+                <li><a href="Automation.html" class="lang-switch">EN</a></li>
             </ul>
         </nav>
     </header>
@@ -245,25 +297,50 @@
     <div class="features-grid">
         <div class="feature-card">
             <h3><span>✦</span> Sceny i Scenariusze</h3>
-            <p>Uruchom idealne warunki jednym kliknięciem. Scena "Kino" opuści rolety, przyciemni światło i dostosuje temperaturę. Wychodzisz z domu? Scena "Wyjście" wyłączy wszystkie światła, odetnie wybrane gniazdka i uzbroi alarm.</p>
+            <p>Uruchom idealne warunki jednym kliknięciem. Ustawiając sceny, możesz jednym kliknięciem dostosować całe pomieszczenie pod siebię. Wychodzisz z domu? Wyłącz wszystkie światła, odetnij wybrane gniazdka, opuść rolety i aktywuj alarm jednym kliknięciem.</p>
         </div>
         <div class="feature-card">
             <h3><span>☀</span> Zależność od Pogody</h3>
-            <p>Stacja pogodowa KNX na dachu dba o Twój komfort i portfel. Analizuje kąt padania słońca i siłę wiatru. Latem żaluzje zamkną się, by chronić wnętrze przed nagrzaniem, a zimą wpuszczą słońce, by darmowo dogrzać salon.</p>
+            <p>Ściągaj informacje o pogodzie online lub bezpośrednio ze stacji pogodowej na twoim dachu. Analizuj kąt padania słońca i siłę wiatru. Zamykaj żaluzje latem, by chronić wnętrze przed nagrzaniem, a zimą wpuszczaj słońce, by darmowo dogrzać salon.</p>
         </div>
         <div class="feature-card">
             <h3><span>⏱</span> Harmonogramy Czasowe</h3>
-            <p>Dostosuj dom do swojego rytmu. O 7:00 rano rolety w sypialni mogą podnosić się delikatnie razem z promieniami słońca, podczas gdy podłoga w łazience będzie już czekać przyjemnie ciepła.</p>
+            <p>Dostosuj dom do swojego rytmu. Podnieś rolety wraz z pierwszymi promieniami słońca lub ogrzej zawczasu płytki w łazience.</p>
+            <p>Ustaw oświetlenie w ogrodzie by świeciło tylko godzine po zmierzchu lub otwieraj bramę wjazdową automatycznie kiedy zbliżysz się do domu.</p>
         </div>
     </div>
 
     <div class="tablet-section">
         <h2>Pełna kontrola w jednym miejscu</h2>
-        <p>Wszystkie parametry domu – od temperatury i wentylacji, po oświetlenie i pozycję żaluzji – masz zawsze pod ręką. Steruj domem z eleganckiego, dotykowego ekranu zamontowanego w centralnym punkcie domu lub twojego smartphona.</p>
+        <p>Wszystkie parametry domu – od temperatury i wentylacji, po oświetlenie i pozycję żaluzji – masz zawsze pod ręką. Steruj domem z eleganckiego, dotykowego ekranu zamontowanego w centralnym punkcie domu lub swojego telefonu.</p>
         <div class="tablet-image-placeholder"></div>
     </div>
 
-    <a href="index.html" class="btn">Wróć na stronę główną</a>
+    <a href="index-en.html" class="btn">Wróć na stronę główną</a>
+
+    <section id="contact" class="contact">
+        <h2>Rozpocznijmy projekt</h2>
+        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Telefon</h4>
+                <p>+48 514 426 864</p>
+            </div>
+            <div class="contact-item">
+                <h4>E-mail</h4>
+                <p>kontakt@attech-smart.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Dane firmy</h4>
+                <i>Wkrótce</i> <br />
+                <s>NIP: 000-000-00-00 </s>
+                <p>Polska</p>
+            </div>
+        </div>
+
+        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+    </section>
 
 </body>
 </html>

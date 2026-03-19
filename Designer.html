@@ -328,6 +328,59 @@
                 background-color: var(--accent-hover);
             }
 
+
+        .contact {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: #0f172a;
+            border-top: 1px solid #0f172a;
+        }
+
+            .contact h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--accent-color);
+            }
+
+            .contact p.desc {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+                color: #94a3b8;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            min-width: 250px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+            .contact-item:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-color);
+            }
+
+            .contact-item h4 {
+                color: var(--accent-color);
+                margin-bottom: 0.8rem;
+                font-size: 1.2rem;
+            }
+
+
+
         /* Responsywność */
         @media (max-width: 768px) {
             nav ul {
@@ -412,7 +465,29 @@
     </div>
 
     <a href="index.html" class="btn">Wróć na stronę główną</a>
+    <section id="contact" class="contact">
+        <h2>Rozpocznijmy projekt</h2>
+        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
 
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Telefon</h4>
+                <p>+48 514 426 864</p>
+            </div>
+            <div class="contact-item">
+                <h4>E-mail</h4>
+                <p>kontakt@attech-smart.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Dane firmy</h4>
+                <i>Wkrótce</i> <br />
+                <s>NIP: 000-000-00-00 </s>
+                <p>Polska</p>
+            </div>
+        </div>
+
+        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+    </section>
     <script>
         const sliderInput = document.querySelector('.slider-input');
         const imgBefore = document.querySelector('.img-before');

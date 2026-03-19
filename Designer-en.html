@@ -120,8 +120,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('Ramka3-bg.png') center/contain no-repeat;
-            clip-path: inset(0 0 0 50%);
+            background: url('Images/Frame-test.jpg') center/contain no-repeat;
+            clip-path: inset(0 0 0 0%);
             will-change: clip-path;
         }
 
@@ -131,9 +131,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('gira-przed_enchanced.jpg') center/contain no-repeat;
+            background: url('Images/Gira-test.jpg') center/contain no-repeat;
             transition: background-image 0.3s ease-in-out;
-            clip-path: inset(0 50% 0 0);
+            clip-path: inset(0 100% 0 0);
             will-change: clip-path;
         }
 
@@ -141,11 +141,12 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 50%;
+            left: 20%;
             width: 4px;
             background-color: white;
             transform: translateX(-50%);
             pointer-events: none;
+            z-index: 5;
         }
 
             .slider-handle::after {
@@ -167,6 +168,53 @@
                 box-shadow: 0 0 10px rgba(0,0,0,0.5);
             }
 
+        /* --- ANIMOWANA PODPOWIEDŹ SUWAKA --- */
+        .slider-hint {
+            position: absolute;
+            top: 65%; /* Umiejscowienie lekko pod środkowym kółkiem */
+            left: 20%;
+            transform: translateX(-50%);
+            background-color: rgba(15, 23, 42, 0.85); /* Półprzezroczyste granatowe tło */
+            color: #f8fafc;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            border: 1px solid var(--accent-color);
+            pointer-events: none; /* Pozwala kliknąć "przez" napis w suwak */
+            z-index: 15;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: opacity 0.5s ease; /* Płynne znikanie */
+            animation: pulseHint 2s infinite ease-in-out;
+        }
+
+            .slider-hint span {
+                color: var(--accent-color);
+                font-size: 1.2rem;
+            }
+
+        @keyframes pulseHint {
+            0% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.9;
+            }
+
+            50% {
+                transform: translateX(-50%) scale(1.05);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateX(-50%) scale(1);
+                opacity: 0.9;
+            }
+        }
+        /* --------------------------------- */
+
         .slider-input {
             position: absolute;
             top: 0;
@@ -176,7 +224,7 @@
             opacity: 0;
             cursor: ew-resize;
             margin: 0;
-            z-index: 10;
+            z-index: 20;
         }
 
         .manufacturer-options {
@@ -192,12 +240,21 @@
                 font-size: 1.1rem;
             }
 
+        /* Dodatkowy kontener dla przycisków i linku */
+        .controls-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
         .btn-style {
             background-color: transparent;
             color: var(--text-color);
             border: 1px solid var(--accent-color);
             padding: 0.6rem 1.5rem;
-            margin: 0.5rem;
             border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s;
@@ -207,6 +264,25 @@
             .btn-style:hover, .btn-style.active {
                 background-color: var(--accent-color);
                 color: white;
+            }
+
+        /* Styl dla linku zewnetrznego (Strona producenta) */
+        .external-link {
+            background-color: #334155;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 1rem;
+        }
+
+            .external-link:hover {
+                background-color: #475569;
             }
 
         .content-box {
@@ -252,6 +328,59 @@
                 background-color: var(--accent-hover);
             }
 
+
+        .contact {
+            padding: 6rem 5%;
+            text-align: center;
+            background-color: #0f172a;
+            border-top: 1px solid #0f172a;
+        }
+
+            .contact h2 {
+                font-size: 2.5rem;
+                margin-bottom: 1.5rem;
+                color: var(--accent-color);
+            }
+
+            .contact p.desc {
+                font-size: 1.1rem;
+                margin-bottom: 3rem;
+                color: #94a3b8;
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            background-color: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            min-width: 250px;
+            border: 1px solid #334155;
+            transition: transform 0.3s;
+        }
+
+            .contact-item:hover {
+                transform: translateY(-5px);
+                border-color: var(--accent-color);
+            }
+
+            .contact-item h4 {
+                color: var(--accent-color);
+                margin-bottom: 0.8rem;
+                font-size: 1.2rem;
+            }
+
+
+
         /* Responsywność */
         @media (max-width: 768px) {
             nav ul {
@@ -262,9 +391,22 @@
                 height: 250px;
             }
 
+            .slider-hint {
+                top: 70%;
+                font-size: 0.85rem;
+                padding: 0.5rem 1rem;
+            }
+
             .btn-style {
                 padding: 0.5rem 1rem;
                 font-size: 0.9rem;
+            }
+
+            .external-link {
+                margin-left: 0;
+                width: 100%;
+                justify-content: center;
+                margin-top: 10px;
             }
         }
     </style>
@@ -272,13 +414,13 @@
 <body>
 
     <header>
-        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
+        <a href="index-en.html" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul>
-                <li><a href="index.html#home">Strona Główna</a></li>
-                <li><a href="index.html#services">Oferta</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
-                <li><a href="Designer.html" class="lang-switch">PL</a></li>
+                <li><a href="index-en.html#home">Strona Główna</a></li>
+                <li><a href="index-en.html#services">Oferta</a></li>
+                <li><a href="index-en.html#contact">Kontakt</a></li>
+                <li><a href="Designer.html" class="lang-switch">EN</a></li>
             </ul>
         </nav>
     </header>
@@ -287,15 +429,27 @@
         <div class="img-before"></div>
         <div class="img-after"></div>
         <div class="slider-handle"></div>
+
+        <div class="slider-hint" id="slider-hint">
+            <span>⟵</span> Przesuń by porównać <span>⟶</span>
+        </div>
+
         <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Porównaj zdjęcia">
     </div>
 
     <div class="manufacturer-options">
         <p>Sprawdź, jak może wyglądać Twoja ściana z różnymi producentami osprzętu KNX:</p>
-        <button class="btn-style active" data-img="url('gira-przed_enchanced.jpg')">Gira</button>
-        <button class="btn-style" data-img="url('Basalte-bg.png')">Basalte</button>
-        <button class="btn-style" data-img="url('jung_enchanced.jpg')">Jung</button>
-        <button class="btn-style" data-img="url('Ekinex-bg.png')">Ekinex</button>
+
+        <div class="controls-wrapper">
+            <button class="btn-style active" data-img="url('Images/Gira-test.jpg')" data-link="https://partner.gira.com/pl_PL/index.html">Gira</button>
+            <button class="btn-style" data-img="url('Images/Basalte-test.jpg')" data-link="https://www.basalte.be/en">Basalte</button>
+            <button class="btn-style" data-img="url('Images/Jung-test.jpg')" data-link="https://jungteam.pl/">Jung</button>
+            <button class="btn-style" data-img="url('Images/Ekinex-test.jpg')" data-link="https://www.ekinex.com/en/">Ekinex</button>
+
+            <a href="https://partner.gira.com/pl_PL/index.html" target="_blank" class="external-link" id="manufacturer-link">
+                Strona producenta ↗
+            </a>
+        </div>
     </div>
 
     <h1>Współpraca z Projektantami Wnętrz</h1>
@@ -310,22 +464,59 @@
         </ul>
     </div>
 
-    <a href="index.html" class="btn">Wróć na stronę główną</a>
+    <a href="index-en.html" class="btn">Wróć na stronę główną</a>
+    <section id="contact" class="contact">
+        <h2>Rozpocznijmy projekt</h2>
+        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
 
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Telefon</h4>
+                <p>+48 514 426 864</p>
+            </div>
+            <div class="contact-item">
+                <h4>E-mail</h4>
+                <p>kontakt@attech-smart.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Dane firmy</h4>
+                <i>Wkrótce</i> <br />
+                <s>NIP: 000-000-00-00 </s>
+                <p>Polska</p>
+            </div>
+        </div>
+
+        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+    </section>
     <script>
         const sliderInput = document.querySelector('.slider-input');
         const imgBefore = document.querySelector('.img-before');
         const imgAfter = document.querySelector('.img-after');
         const sliderHandle = document.querySelector('.slider-handle');
+        const sliderHint = document.getElementById('slider-hint');
+
+        // Funkcja usuwająca podpowiedź
+        function hideHint() {
+            if (sliderHint.style.opacity !== '0') {
+                sliderHint.style.opacity = '0';
+                // Usuwamy element całkowicie z kodu po 0.5s (gdy skończy się animacja znikania)
+                setTimeout(() => sliderHint.remove(), 500);
+            }
+        }
 
         sliderInput.addEventListener('input', (e) => {
             const sliderValue = e.target.value;
             imgAfter.style.clipPath = `inset(0 calc(100% - ${sliderValue}%) 0 0)`;
             imgBefore.style.clipPath = `inset(0 0 0 ${sliderValue}%)`;
             sliderHandle.style.left = `${sliderValue}%`;
+
+            // Ukryj podpowiedź przy pierwszym ruchu suwakiem
+            hideHint();
         });
 
         const buttons = document.querySelectorAll('.btn-style');
+        const manufacturerLink = document.getElementById('manufacturer-link');
+
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 buttons.forEach(btn => btn.classList.remove('active'));
@@ -333,6 +524,9 @@
 
                 const newImage = button.getAttribute('data-img');
                 imgAfter.style.backgroundImage = newImage;
+
+                const newLink = button.getAttribute('data-link');
+                manufacturerLink.href = newLink;
             });
         });
     </script>
