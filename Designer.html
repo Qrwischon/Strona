@@ -77,7 +77,6 @@
                 color: var(--accent-color);
             }
 
-        /* Przycisk zmiany języka */
         .lang-switch {
             border: 1px solid var(--accent-color);
             padding: 0.3rem 0.8rem;
@@ -92,7 +91,6 @@
                 color: white;
                 box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
             }
-        /* ---------------------- */
 
         h1 {
             color: var(--accent-color);
@@ -101,7 +99,6 @@
             text-align: center;
         }
 
-        /* --- STYL SUWAKA PRZED/PO --- */
         .comparison-slider {
             position: relative;
             width: 100%;
@@ -168,7 +165,6 @@
                 box-shadow: 0 0 10px rgba(0,0,0,0.5);
             }
 
-        /* --- ANIMOWANA PODPOWIEDŹ SUWAKA --- */
         .slider-hint {
             position: absolute;
             top: 65%; /* Umiejscowienie lekko pod środkowym kółkiem */
@@ -197,6 +193,63 @@
                 font-size: 1.2rem;
             }
 
+
+        /* Container for the icon to handle the hover area */
+        .info-icon-wrapper {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 25; /* Must be higher than images and hints */
+            cursor: help;
+        }
+
+        /* The "?" mark icon */
+        .info-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(4px);
+            border: 1px solid white;
+            color: white;
+            border-radius: 50%;
+            font-size: 14px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        /* The tooltip (hidden by default) */
+        .info-tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            right: 35px; /* Positioned to the left of the icon */
+            width: 200px;
+            background-color: rgba(15, 23, 42, 0.95);
+            color: white;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            transform: translateX(10px);
+            pointer-events: none;
+        }
+
+        /* Hover Effects */
+        .info-icon-wrapper:hover .info-icon {
+            background-color: var(--accent-color, #3b82f6);
+        }
+
+        .info-icon-wrapper:hover .info-tooltip {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(0);
+        }
         @keyframes pulseHint {
             0% {
                 transform: translateX(-50%) scale(1);
@@ -379,6 +432,37 @@
                 font-size: 1.2rem;
             }
 
+        /* The container */
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black; /* Visual cue for the user */
+        }
+
+            /* The annotation text (hidden by default) */
+            .tooltip .tooltiptext {
+                visibility: hidden;
+                width: 120px;
+                background-color: #333;
+                color: #fff;
+                text-align: center;
+                border-radius: 5px;
+                padding: 5px;
+                /* Position the tooltip */
+                position: absolute;
+                z-index: 25;
+                bottom: 125%; /* Place it above the text */
+                left: 50%;
+                margin-left: -60px; /* Center it */
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+
+            /* Show the tooltip on hover */
+            .tooltip:hover .tooltiptext {
+                visibility: visible;
+                opacity: 1;
+            }
 
 
         /* Responsywność */
@@ -425,7 +509,17 @@
         </nav>
     </header>
 
+
     <div class="comparison-slider">
+
+        <div class="info-icon-wrapper">
+            <span class="info-icon">?</span>
+            <div class="info-tooltip">
+                Zdjęcia zostały opracowane przez Nano Banana 2 na podstawie zdjęć producenta.
+                Zachowano realistyczne odzwierciedlenie przycisków, jednak proporcję pomiędzy różnymi przyciskami mogą się różnić.   
+            </div>
+        </div>
+
         <div class="img-before"></div>
         <div class="img-after"></div>
         <div class="slider-handle"></div>
@@ -451,6 +545,7 @@
             </a>
         </div>
     </div>
+
 
     <h1>Współpraca z Projektantami Wnętrz</h1>
 
