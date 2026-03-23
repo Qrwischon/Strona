@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATTech - Programista Smart Home</title>
     <style>
-        /* Styl bazowy i zmienne */
         :root {
             --bg-color: #0f172a;
             --text-color: #f8fafc;
@@ -28,7 +27,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Nawigacja */
         header {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 1rem 5%;
@@ -97,9 +95,8 @@
                 box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
             }
 
-        /* Hamburger Button */
         .hamburger {
-            display: none; /* Hidden on desktop */
+            display: none; 
             flex-direction: column;
             justify-content: space-around;
             width: 30px;
@@ -118,7 +115,6 @@
                 transition: all 0.3s linear;
             }
 
-        /* Mobile Dropdown Menu */
         .dropdown-nav {
             list-style: none;
             display: flex;
@@ -131,7 +127,7 @@
             padding: 2rem 0;
             gap: 1.5rem;
             align-items: center;
-            transform: translateY(-150%); /* Hidden off-screen */
+            transform: translateY(-150%); 
             opacity: 0;
             transition: all 0.3s ease-in-out;
             border-bottom: 1px solid #334155;
@@ -140,14 +136,12 @@
             z-index: 999;
         }
 
-            /* Active class for JS toggle */
             .dropdown-nav.active {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: auto;
             }
 
-        /* Animate Hamburger into an "X" */
         .hamburger.active span:nth-child(1) {
             transform: translateY(11px) rotate(45deg);
         }
@@ -160,7 +154,6 @@
             transform: translateY(-11px) rotate(-45deg);
         }
 
-        /* Reszta stylów */
         .hero {
             position: relative;
             height: 100vh;
@@ -474,14 +467,101 @@
             color: #64748b;
         }
 
-        /* Responsywność */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: left;
+        }
+
+        .faq-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+            .faq-btn:hover {
+                color: white;
+            }
+
+        .faq-container {
+            display: none; 
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+            .faq-container.active {
+                display: flex; 
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+            .faq-item:hover {
+                border-color: var(--accent-color);
+            }
+
+            .faq-item summary {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: var(--text-color);
+                cursor: pointer;
+                list-style: none; 
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .faq-item summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                .faq-item summary::after {
+                    content: '+';
+                    color: var(--accent-color);
+                    font-size: 1.5rem;
+                    transition: transform 0.3s;
+                }
+
+            .faq-item[open] summary::after {
+                transform: rotate(45deg); 
+            }
+
+            .faq-item p {
+                margin-top: 1rem;
+                color: #94a3b8;
+                line-height: 1.6;
+                border-top: 1px solid #334155;
+                padding-top: 1rem;
+            }
+
         @media (max-width: 768px) {
             .desktop-links {
-                display: none; /* Hide main links on mobile */
+                display: none;
             }
 
             .hamburger {
-                display: flex; /* Show hamburger on mobile */
+                display: flex; 
             }
 
             .hero h1 {
@@ -628,6 +708,30 @@
                 <p>Polska</p>
             </div>
         </div>
+        <div class="faq-wrapper">
+            <button id="faq-toggle" class="btn faq-btn">Najczęściej zadawane pytania (FAQ) ▼</button>
+
+            <div id="faq-container" class="faq-container">
+                <details class="faq-item">
+                    <summary>Ile trwa realizacja projektu Smart Home?</summary>
+                    <p>Czas realizacji zależy od skomplikowania projektu i wielkości budynku. Średnio, od projektu do uruchomienia mija od kilku tygodni do kilku miesięcy, zgranych z harmonogramem prac budowlanych.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Czy mogę sterować domem będąc na wakacjach?</summary>
+                    <p>Dostęp do budynku będąc poza zasięgiem jego sieci Wi-Fi jest możliwy poprzez dedykowane urządzenia (np. Gira S1) lub serwer VPN który podłączy nas z dowolnego miejsca w bezpieczny sposób do naszej domowej sieci.</p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Czy są jakieś inne rozwiązania niż przewodowe?</summary>
+                    <p> Rozwiązań na rynku jest wiele, od profesjonalnych po hobbystyczne (np. Home Assistant).</p>
+                    <p> Jeżeli mamy doczynienia z nowym budynkiem, najlepszym rozwiązaniem jest przewodowa werjsa KNX. W sytuacji gdy mamy klasyczną instalację, mamy do wyboru nakładki niektórych producentów (zasilane 230V, komunikacja po RF) do przycisków lub serię Simon Go, który idealnie się wpasuje w domu który nie był projektowany z myślą o automatyce.</p>
+                </details>
+
+
+
+            </div>
+        </div>
     </section>
 
     <footer>
@@ -635,7 +739,6 @@
     </footer>
 
     <script>
-        // --- Hero Slider Logic ---
         let currentHeroIndex = 0;
         const heroSlides = document.querySelectorAll('.hero-slide');
 
@@ -651,7 +754,6 @@
             showHeroSlide(currentHeroIndex);
         }
 
-        // --- Hamburger Menu Logic ---
         const hamburger = document.getElementById('hamburger');
         const dropdownNav = document.getElementById('dropdown-nav');
 
@@ -660,13 +762,27 @@
             dropdownNav.classList.toggle('active');
         });
 
-        // Close menu when a link inside the mobile menu is clicked
         document.querySelectorAll('.dropdown-nav a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburger.classList.remove('active');
                 dropdownNav.classList.remove('active');
             });
         });
+
+        const faqToggle = document.getElementById('faq-toggle');
+        const faqContainer = document.getElementById('faq-container');
+
+        if (faqToggle && faqContainer) {
+            faqToggle.addEventListener('click', () => {
+                faqContainer.classList.toggle('active');
+
+                if (faqContainer.classList.contains('active')) {
+                    faqToggle.innerHTML = 'Schowaj FAQ ▲';
+                } else {
+                    faqToggle.innerHTML = 'Najczęściej zadawane pytania (FAQ) ▼';
+                }
+            });
+        }
     </script>
 </body>
 </html>
