@@ -418,5 +418,24 @@
             </div>
         </div>
     </section>
+
+
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const dropdownNav = document.getElementById('dropdown-nav');
+
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            dropdownNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                dropdownNav.classList.remove('active');
+            });
+        });
+    </script>
 </body>
 </html>

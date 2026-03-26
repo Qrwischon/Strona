@@ -424,5 +424,26 @@
             <p>The most important stage of a smart installation is proper cabling. We provide clear diagrams, switchboard designs, and KNX bus topology guidelines. We will answer your construction team's questions to avoid costly mistakes before floors are poured and plaster is applied.</p>
         </div>
     </div>
+
+
+    <script>
+
+        const hamburger = document.getElementById('hamburger');
+        const dropdownNav = document.getElementById('dropdown-nav');
+
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            dropdownNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                dropdownNav.classList.remove('active');
+            });
+        });
+
+    </script>
 </body>
 </html>

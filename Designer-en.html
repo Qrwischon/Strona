@@ -642,7 +642,21 @@
             sliderHandle.style.left = `${sliderValue}%`;
             hideHint();
         });
+        const hamburger = document.getElementById('hamburger');
+        const dropdownNav = document.getElementById('dropdown-nav');
 
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            dropdownNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                dropdownNav.classList.remove('active');
+            });
+        });
         const buttons = document.querySelectorAll('.btn-style');
         const manufacturerLink = document.getElementById('manufacturer-link');
 
