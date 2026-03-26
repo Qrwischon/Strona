@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ATTech - Programista Smart Home</title>
     <style>
-        /* Styl bazowy i zmienne */
         :root {
             --bg-color: #0f172a;
             --text-color: #f8fafc;
@@ -28,7 +27,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Nawigacja */
         header {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 1rem 5%;
@@ -55,33 +53,39 @@
                 color: var(--accent-color);
             }
 
-        /* Dodano align-items: center aby linki i przycisk języka były idealnie w jednej linii */
-        nav ul {
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .desktop-links {
             list-style: none;
             display: flex;
             gap: 2rem;
             align-items: center;
         }
 
-        nav a {
-            color: var(--text-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            font-size: 1.05rem;
-        }
-
-            nav a:hover {
-                color: var(--accent-color);
+            .desktop-links a, .dropdown-nav a {
+                color: var(--text-color);
+                text-decoration: none;
+                font-weight: 500;
+                transition: color 0.3s;
+                font-size: 1.05rem;
             }
 
-        /* NOWY STYL: Przycisk zmiany języka */
+                .desktop-links a:hover, .dropdown-nav a:hover {
+                    color: var(--accent-color);
+                }
+
         .lang-switch {
             border: 1px solid var(--accent-color);
             padding: 0.3rem 0.8rem;
             border-radius: 6px;
             font-weight: bold;
             font-size: 0.95rem;
+            color: var(--text-color);
+            text-decoration: none;
             transition: all 0.3s ease;
         }
 
@@ -90,6 +94,65 @@
                 color: white;
                 box-shadow: 0 0 10px rgba(14, 165, 233, 0.4);
             }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 30px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+            .hamburger span {
+                width: 100%;
+                height: 3px;
+                background-color: var(--text-color);
+                border-radius: 5px;
+                transition: all 0.3s linear;
+            }
+
+        .dropdown-nav {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.95);
+            padding: 2rem 0;
+            gap: 1.5rem;
+            align-items: center;
+            transform: translateY(-150%);
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            border-bottom: 1px solid #334155;
+            backdrop-filter: blur(10px);
+            pointer-events: none;
+            z-index: 999;
+        }
+
+            .dropdown-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+        .hamburger.active span:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+        }
 
         .hero {
             position: relative;
@@ -100,7 +163,6 @@
             align-items: center;
             text-align: center;
             padding: 0 5%;
-            /*background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);*/
             margin-top: 0;
             overflow: hidden;
             background-color: var(--bg-color);
@@ -175,7 +237,6 @@
                 right: 30px;
             }
 
-        /* Właściwa treść na środku */
         .hero-content {
             position: relative;
             z-index: 5;
@@ -221,7 +282,6 @@
                 box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
             }
 
-        /* Sekcja Wybierz Strefę (Kafelki docelowe) */
         .services {
             padding: 6rem 5%;
             text-align: center;
@@ -295,72 +355,6 @@
                 font-size: 1.05rem;
             }
 
-        /* NOWA SEKCJA: Technologie */
-        .tech-section {
-            padding: 5rem 5%;
-            background-color: #0b1120;
-            text-align: center;
-            border-top: 1px solid #334155;
-        }
-
-            .tech-section h2 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-                color: var(--text-color);
-            }
-
-            .tech-section > p {
-                color: #94a3b8;
-                margin-bottom: 3rem;
-                font-size: 1.1rem;
-                max-width: 700px;
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .tech-item {
-            background-color: var(--card-bg);
-            border: 1px solid #334155;
-            padding: 1.5rem;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--accent-color);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            min-height: 100px;
-        }
-
-            .tech-item:hover {
-                background-color: var(--accent-color);
-                color: white;
-                transform: scale(1.05);
-            }
-
-            .tech-item span {
-                font-size: 0.9rem;
-                font-weight: normal;
-                color: #94a3b8;
-                margin-top: 0.5rem;
-                display: block;
-                transition: color 0.3s;
-            }
-
-            .tech-item:hover span {
-                color: #e2e8f0;
-            }
-
-        /* NOWA SEKCJA: Filary / Korzyści */
         .benefits {
             padding: 6rem 5%;
             text-align: center;
@@ -409,7 +403,6 @@
             line-height: 1.6;
         }
 
-        /* Kontakt */
         .contact {
             padding: 6rem 5%;
             text-align: center;
@@ -466,19 +459,156 @@
                 line-height: 1.5;
             }
 
-        /* Stopka */
-        footer {
-            background-color: #0f172a;
-            text-align: center;
-            padding: 2rem;
-            border-top: 1px solid #334155;
-            color: #64748b;
+        /* --- FAQ STYLES --- */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: left;
         }
 
-        /* Responsywność */
+        .faq-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+            .faq-btn:hover {
+                color: white;
+            }
+
+        .faq-container {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+            .faq-container.active {
+                display: flex;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+            .faq-item:hover {
+                border-color: var(--accent-color);
+            }
+
+            .faq-item summary {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: var(--text-color);
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .faq-item summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                .faq-item summary::after {
+                    content: '+';
+                    color: var(--accent-color);
+                    font-size: 1.5rem;
+                    transition: transform 0.3s;
+                }
+
+            .faq-item[open] summary::after {
+                transform: rotate(45deg);
+            }
+
+            .faq-item p {
+                margin-top: 1rem;
+                color: #94a3b8;
+                line-height: 1.6;
+                border-top: 1px solid #334155;
+                padding-top: 1rem;
+            }
+
+        .contact-form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+            .contact-form-wrapper h3 {
+                color: var(--text-color);
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #94a3b8;
+                font-size: 0.95rem;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            border: 1px solid #334155;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--accent-color);
+                box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
+
         @media (max-width: 768px) {
-            nav ul {
+            .desktop-links {
                 display: none;
+            }
+
+            .hamburger {
+                display: flex;
             }
 
             .hero h1 {
@@ -515,6 +645,10 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .contact-form-wrapper {
+                padding: 2rem 1.5rem;
+            }
         }
     </style>
 </head>
@@ -523,18 +657,33 @@
     <header>
         <a href="#" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
-            <ul>
+            <ul class="desktop-links">
                 <li><a href="#home">Home Page</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="index.html" class="lang-switch">EN</a></li>
+                <li><a href="#contact">FAQ</a></li>
+
             </ul>
+
+            <a href="index.html" class="lang-switch">PL</a>
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
+
+        <ul class="dropdown-nav" id="dropdown-nav">
+            <li><a href="#home">Home Page</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="faq-container">FAQ</a></li>
+        </ul>
+
+
     </header>
 
     <section id="home" class="hero">
-
-
         <div class="hero-bg-slider">
             <div class="hero-slide active" style="background-image: url('Images/FirstHome.jpg');"></div>
             <div class="hero-slide" style="background-image: url('Images/SecondHome.jpg');"></div>
@@ -552,12 +701,6 @@
             <a href="#contact" class="btn">Free quote</a>
         </div>
     </section>
-    <!-- To po harcerskiej kiełczówku i maleczyńskich by dodać zdj.-->
-    <!--<section id="experience" class="services">
-        <h2> Sprawdź nasze doświadczenie </h2>
-    </section>-->
-
-
 
     <section class="benefits">
         <h2>Why Smart Home?</h2>
@@ -645,7 +788,84 @@
             </div>
         </div>
 
-        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+        <div class="faq-wrapper">
+            <button id="faq-toggle" class="btn faq-btn">Frequently Asked Questions (FAQ) ▼</button>
+
+            <div id="faq-container" class="faq-container">
+                <details class="faq-item">
+                    <summary>How long does a Smart Home project take to complete?</summary>
+                    <p>
+                        The implementation time depends on the complexity of the project and the size of the building.
+                        On average, from design to commissioning it takes from a few weeks to several months,
+                        aligned with the construction schedule.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I control my home while on vacation?</summary>
+                    <p>
+                        Access to the building while outside its Wi-Fi network range
+                        is possible via dedicated devices (e.g., Gira S1) or a VPN server
+                        that securely connects you to your home network from anywhere in the world.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Are there any alternatives to wired solutions?</summary>
+                    <p>
+                        Of course. The choice of technology depends on the stage of the investment:
+                    </p>
+                    <p>
+                        For new buildings: We recommend the stable, wired KNX standard,
+                        which serves as the "foundation" of a smart home.
+                    </p>
+                    <p>
+                        For finished interiors: We use wireless (radio-based) solutions.
+                        Systems such as Simon GO or professional retrofit modules for
+                        traditional electrical installations (powered by 230V) work very well here.
+                        They allow for quick modernization without the need to cut into walls.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is the cost?</summary>
+                    <p>
+                        The budget is highly individual and depends on the number of circuits
+                        (lighting points, blinds, heating zones).
+                    </p>
+                    <p>
+                        In budget-friendly solutions like Simon GO, the cost of a controller is around 200 PLN per point.
+                    </p>
+                    <p>
+                        In the KNX system, the price range is broader – you can find both switches at a similar price
+                        and premium models.
+                        We always prepare a quotation based on specific needs and the selected finishing standard of the fittings.
+                    </p>
+                </details>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h3>Send us a message</h3>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name / Company Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="ex. John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe briefly your project or ask us a question..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
     </section>
 
     <footer>
@@ -657,25 +877,19 @@
         const heroSlides = document.querySelectorAll('.hero-slide');
         let heroTimer;
 
-        // Funkcja wyświetlająca konkretny slajd
         function showHeroSlide(index) {
             heroSlides.forEach(slide => slide.classList.remove('active'));
-
-            // Zabezpieczenie na wypadek przewijania w kółko
             if (index >= heroSlides.length) currentHeroIndex = 0;
             if (index < 0) currentHeroIndex = heroSlides.length - 1;
-
             heroSlides[currentHeroIndex].classList.add('active');
         }
 
-        // Funkcja reagująca na strzałki
         function moveHeroSlide(step) {
             currentHeroIndex += step;
             showHeroSlide(currentHeroIndex);
-            resetHeroTimer(); // Resetuje czas po ręcznym kliknięciu
+            resetHeroTimer();
         }
 
-        // Uruchomienie automatycznego przełączania (np. co 5 sekund)
         function startHeroTimer() {
             heroTimer = setInterval(() => {
                 currentHeroIndex++;
@@ -683,15 +897,44 @@
             }, 5000);
         }
 
-        // Zresetowanie czasu, gdy ktoś kliknie przycisk samemu
         function resetHeroTimer() {
             clearInterval(heroTimer);
             startHeroTimer();
         }
 
-        // Start zaraz po załadowaniu strony
         if (heroSlides.length > 0) {
             startHeroTimer();
+        }
+
+        const hamburger = document.getElementById('hamburger');
+        const dropdownNav = document.getElementById('dropdown-nav');
+
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            dropdownNav.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-nav a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                dropdownNav.classList.remove('active');
+            });
+        });
+
+        const faqToggle = document.getElementById('faq-toggle');
+        const faqContainer = document.getElementById('faq-container');
+
+        if (faqToggle && faqContainer) {
+            faqToggle.addEventListener('click', () => {
+                faqContainer.classList.toggle('active');
+
+                if (faqContainer.classList.contains('active')) {
+                    faqToggle.innerHTML = 'Schowaj FAQ ▲';
+                } else {
+                    faqToggle.innerHTML = 'Najczęściej zadawane pytania (FAQ) ▼';
+                }
+            });
         }
     </script>
 
