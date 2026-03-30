@@ -31,7 +31,6 @@
             padding: 8rem 2rem 4rem 2rem;
         }
 
-        /* --- STYL NAWIGACJI --- */
         header {
             background-color: rgba(15, 23, 42, 0.95);
             padding: 1rem 5%;
@@ -261,16 +260,14 @@
             }
 
 
-        /* Container for the icon to handle the hover area */
         .info-icon-wrapper {
             position: absolute;
             top: 15px;
             right: 15px;
-            z-index: 25; /* Must be higher than images and hints */
+            z-index: 25;
             cursor: help;
         }
 
-        /* The "?" mark icon */
         .info-icon {
             display: flex;
             align-items: center;
@@ -287,7 +284,6 @@
             transition: background 0.3s ease;
         }
 
-        /* The tooltip (hidden by default) */
         .info-tooltip {
             visibility: hidden;
             opacity: 0;
@@ -307,7 +303,6 @@
             pointer-events: none;
         }
 
-        /* Hover Effects */
         .info-icon-wrapper:hover .info-icon {
             background-color: var(--accent-color, #3b82f6);
         }
@@ -334,7 +329,6 @@
                 opacity: 0.9;
             }
         }
-        /* --------------------------------- */
 
         .slider-input {
             position: absolute;
@@ -361,7 +355,6 @@
                 font-size: 1.1rem;
             }
 
-        /* Dodatkowy kontener dla przycisków i linku */
         .controls-wrapper {
             display: flex;
             flex-wrap: wrap;
@@ -387,7 +380,6 @@
                 color: white;
             }
 
-        /* Styl dla linku zewnetrznego (Strona producenta) */
         .external-link {
             background-color: #334155;
             color: white;
@@ -500,14 +492,11 @@
                 font-size: 1.2rem;
             }
 
-        /* The container */
         .tooltip {
             position: relative;
             display: inline-block;
-            border-bottom: 1px dotted black; /* Visual cue for the user */
-        }
+            border-bottom: 1px dotted black;         }
 
-            /* The annotation text (hidden by default) */
             .tooltip .tooltiptext {
                 visibility: hidden;
                 width: 120px;
@@ -516,17 +505,15 @@
                 text-align: center;
                 border-radius: 5px;
                 padding: 5px;
-                /* Position the tooltip */
                 position: absolute;
                 z-index: 25;
-                bottom: 125%; /* Place it above the text */
+                bottom: 125%; 
                 left: 50%;
-                margin-left: -60px; /* Center it */
+                margin-left: -60px; 
                 opacity: 0;
                 transition: opacity 0.3s;
             }
 
-            /* Show the tooltip on hover */
             .tooltip:hover .tooltiptext {
                 visibility: visible;
                 opacity: 1;
@@ -537,6 +524,10 @@
         @media (max-width: 768px) {
             nav ul {
                 display: none;
+            }
+
+            .desktop-links{
+                display:none;
             }
 
             .hamburger {
