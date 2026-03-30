@@ -130,17 +130,18 @@
             padding: 2rem 0;
             gap: 1.5rem;
             align-items: center;
-            transform: translateY(-150%);
+            transform: translateY(-20px);
             opacity: 0;
             transition: all 0.3s ease-in-out;
             border-bottom: 1px solid #334155;
-            backdrop-filter: blur(10px);
+            visibility: hidden;
             pointer-events: none;
-            z-index: 999;
+            z-index: -1;
         }
 
             .dropdown-nav.active {
                 transform: translateY(0);
+                visibility:visible;
                 opacity: 1;
                 pointer-events: auto;
             }
@@ -268,7 +269,7 @@
             padding: 6rem 5%;
             text-align: center;
             background-color: #0f172a;
-            border-top: 1px solid #0f172a;
+            border-top: 1px solid #334155;
         }
 
             .contact h2 {
@@ -314,7 +315,153 @@
                 font-size: 1.2rem;
             }
 
+            .contact-item p {
+                color: var(--text-color);
+                font-size: 1.05rem;
+                line-height: 1.5;
+            }
 
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: left;
+        }
+
+        .faq-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+            .faq-btn:hover {
+                color: white;
+            }
+
+        .faq-container {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+            .faq-container.active {
+                display: flex;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+            .faq-item:hover {
+                border-color: var(--accent-color);
+            }
+
+            .faq-item summary {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: var(--text-color);
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .faq-item summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                .faq-item summary::after {
+                    content: '+';
+                    color: var(--accent-color);
+                    font-size: 1.5rem;
+                    transition: transform 0.3s;
+                }
+
+            .faq-item[open] summary::after {
+                transform: rotate(45deg);
+            }
+
+            .faq-item p {
+                margin-top: 1rem;
+                color: #94a3b8;
+                line-height: 1.6;
+                border-top: 1px solid #334155;
+                padding-top: 1rem;
+            }
+
+        .contact-form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+            .contact-form-wrapper h3 {
+                color: var(--text-color);
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #94a3b8;
+                font-size: 0.95rem;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            border: 1px solid #334155;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--accent-color);
+                box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
 
         /* Responsywność */
         @media (max-width: 768px) {
@@ -348,7 +495,7 @@
 <body>
 
     <header>
-        <a href="#" class="logo">A<span class="plus">+</span> Tech</a>
+        <a href="pl/index.html" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul class="desktop-links">
                 <li><a href="index.html#home">Strona Główna</a></li>
@@ -357,7 +504,7 @@
                 <li><a href="index.html#contact">FAQ</a></li>
             </ul>
 
-            <a href="Automation-en.html" class="lang-switch">EN</a>
+            <a href="../en/Automation.html" class="lang-switch">EN</a>
 
             <button class="hamburger" id="hamburger">
                 <span></span>
@@ -401,6 +548,27 @@
 
     <a href="index.html" class="btn">Wróć na stronę główną</a>
 
+    <!--<section id="contact" class="contact">
+        <h2>Rozpocznijmy projekt</h2>
+        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
+
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Telefon</h4>
+                <p>+48 514 426 864</p>
+            </div>
+            <div class="contact-item">
+                <h4>E-mail</h4>
+                <p>kontakt@attech-smart.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Dane firmy</h4>
+                <i>Wkrótce</i> <br />
+                <s>NIP: 000-000-00-00 </s>
+                <p>Polska</p>
+            </div>
+        </div>-->
+
     <section id="contact" class="contact">
         <h2>Rozpocznijmy projekt</h2>
         <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
@@ -422,8 +590,86 @@
             </div>
         </div>
 
-        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+        <div class="faq-wrapper">
+            <button id="faq-toggle" class="btn faq-btn">Najczęściej zadawane pytania (FAQ) ▼</button>
+
+            <div id="faq-container" class="faq-container">
+                <details class="faq-item">
+                    <summary>Ile trwa realizacja projektu Smart Home?</summary>
+                    <p>
+                        Czas realizacji zależy od skomplikowania projektu i wielkości budynku.
+                        Średnio, od projektu do uruchomienia mija od kilku tygodni do kilku miesięcy,
+                        zgranych z harmonogramem prac budowlanych.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Czy mogę sterować domem będąc na wakacjach?</summary>
+                    <p>
+                        Dostęp do budynku będąc poza zasięgiem jego sieci Wi-Fi jest
+                        możliwy poprzez dedykowane urządzenia (np. Gira S1) lub serwer VPN
+                        który podłączy nas z dowolnego miejsca w bezpieczny sposób do naszej domowej sieci.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Czy są jakieś inne rozwiązania niż przewodowe?</summary>
+                    <p>
+                        Oczywiście. Wybór technologii zależy od etapu, na którym znajduje się inwestycja:
+                    </p><p>
+                        Dla nowych budynków: Rekomendujemy stabilny, przewodowy standard KNX,
+                        który jest "fundamentem" inteligentnego domu.
+                    </p><p>
+                        Dla wykończonych wnętrz: Stosujemy rozwiązania bezprzewodowe (radiowe).
+                        Świetnie sprawdzają się tu systemy takie jak Simon GO czy profesjonalne nakładki na
+                        klasyczną instalację (zasilane 230V). Pozwalają one na szybką modernizację bez konieczności kucia ścian.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary> Jaki jest to koszt? </summary>
+                    <p>
+                        Budżet to kwestia bardzo indywidualna, uzależniona od liczby obwodów
+                        (punktów świetlnych, rolet, stref ogrzewania).
+                    </p><p>
+                        W rozwiązaniach budżetowych, jak Simon GO, koszt sterownika to około 200 PLN za punkt.
+                    </p><p>
+                        W systemie KNX rozpiętość cenowa jest większa – znajdziemy zarówno przyciski w podobnej cenie,
+                        jak i modele premium.
+                        Zawsze przygotowujemy wycenę w oparciu o konkretne potrzeby i wybrany standard wykończenia osprzętu.
+                    </p>
+                </details>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h3>Wyślij wiadomość online</h3>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Imię i nazwisko / Nazwa firmy</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="np. Jan Kowalski" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Adres e-mail</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="jan@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Opisz krótko swój projekt lub zadaj pytanie..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Wyślij zapytanie</button>
+            </form>
+        </div>
+
     </section>
+
+    <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+    <!--</section>-->
+
+
     <script>
         const hamburger = document.getElementById('hamburger');
         const dropdownNav = document.getElementById('dropdown-nav');
@@ -440,6 +686,21 @@
                 dropdownNav.classList.remove('active');
             });
         });
+
+        const faqToggle = document.getElementById('faq-toggle');
+        const faqContainer = document.getElementById('faq-container');
+
+        if (faqToggle && faqContainer) {
+            faqToggle.addEventListener('click', () => {
+                faqContainer.classList.toggle('active');
+
+                if (faqContainer.classList.contains('active')) {
+                    faqToggle.innerHTML = 'Schowaj FAQ ▲';
+                } else {
+                    faqToggle.innerHTML = 'Najczęściej zadawane pytania (FAQ) ▼';
+                }
+            });
+        }
     </script>
 
 </body>

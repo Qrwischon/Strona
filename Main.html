@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ATTech - Programista Smart Home</title>
+    <title>Współpraca B2B - ATTech</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -17,14 +17,17 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
-            line-height: 1.6;
-            scroll-behavior: smooth;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 8rem 2rem 4rem 2rem;
         }
 
         header {
@@ -154,259 +157,139 @@
             transform: translateY(-11px) rotate(-45deg);
         }
 
-        .hero {
-            position: relative;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 5%;
-            margin-top: 0;
-            overflow: hidden;
-            background-color: var(--bg-color);
-        }
-
-        .hero-bg-slider {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        .hero-slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-        }
-
-            .hero-slide.active {
-                opacity: 1;
-            }
-
-        .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 2;
-            background: linear-gradient(90deg, #0f172a 0%, rgba(15, 23, 42, 0.4) 50%, #0f172a 100%), linear-gradient(0deg, #0f172a 0%, rgba(15, 23, 42, 0) 40%, rgba(15, 23, 42, 0.7) 100%);
-        }
-
-        .hero-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(15, 23, 42, 0.5);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 1.5rem;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s;
-            backdrop-filter: blur(5px);
-        }
-
-            .hero-arrow:hover {
-                background-color: var(--accent-color);
-                border-color: var(--accent-color);
-                box-shadow: 0 0 15px rgba(14, 165, 233, 0.5);
-            }
-
-            .hero-arrow.prev {
-                left: 30px;
-            }
-
-            .hero-arrow.next {
-                right: 30px;
-            }
-
-        .hero-content {
-            position: relative;
-            z-index: 5;
-        }
-
-        .hero h1 {
-            font-size: 4.5rem;
-            margin-bottom: 1.5rem;
-            line-height: 1.2;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.7);
-        }
-
-            .hero h1 span {
-                color: var(--accent-color);
-            }
-
-        .hero p {
-            font-size: 1.3rem;
-            max-width: 650px;
-            margin: 0 auto 2.5rem auto;
-            color: #e2e8f0;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
-        }
-
-        .btn {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 0.9rem 2.2rem;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            display: inline-block;
-            box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
-        }
-
-            .btn:hover {
-                background-color: var(--accent-hover);
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(14, 165, 233, 0.4);
-            }
-
-        .services {
-            padding: 6rem 5%;
+        h1 {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
             text-align: center;
         }
 
-            .services h2 {
-                font-size: 2.5rem;
-                margin-bottom: 1rem;
-                color: var(--text-color);
-            }
+        .intro {
+            color: #94a3b8;
+            max-width: 800px;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            line-height: 1.6;
+        }
 
-            .services > p {
-                color: #94a3b8;
-                margin-bottom: 3rem;
-                font-size: 1.1rem;
-            }
-
-        .grid {
+        .b2b-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
+            max-width: 1000px;
+            width: 100%;
+            margin-bottom: 3rem;
         }
 
-        .card {
+        .b2b-card {
             background-color: var(--card-bg);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            transition: all 0.3s ease;
+            padding: 2.5rem;
+            border-radius: 10px;
             border: 1px solid #334155;
-            text-decoration: none;
-            color: inherit;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             position: relative;
             overflow: hidden;
-            cursor: pointer;
         }
 
-            .card::before {
+            .b2b-card::before {
                 content: '';
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 100%;
                 height: 4px;
-                background-color: #334155;
-                transition: background-color 0.3s ease;
+                background-color: var(--accent-color);
             }
 
-            .card:hover {
-                transform: translateY(-10px);
-                border-color: var(--accent-color);
-                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+            .b2b-card h2 {
+                color: var(--text-color);
+                margin-bottom: 1rem;
+                font-size: 1.8rem;
             }
 
-                .card:hover::before {
-                    background-color: var(--accent-color);
+            .b2b-card p {
+                color: #94a3b8;
+                line-height: 1.6;
+                margin-bottom: 1.5rem;
+            }
+
+        ul.benefits {
+            list-style: none;
+            padding: 0;
+        }
+
+            ul.benefits li {
+                color: #e2e8f0;
+                margin-bottom: 0.8rem;
+                padding-left: 1.5rem;
+                position: relative;
+            }
+
+                ul.benefits li::before {
+                    content: '✓';
+                    color: var(--accent-color);
+                    position: absolute;
+                    left: 0;
+                    font-weight: bold;
                 }
 
-            .card h3 {
-                margin-bottom: 1rem;
-                font-size: 1.6rem;
-                color: var(--text-color);
-            }
-
-            .card p {
-                color: #94a3b8;
-                font-size: 1.05rem;
-            }
-
-        .benefits {
-            padding: 6rem 5%;
-            text-align: center;
-        }
-
-            .benefits h2 {
-                font-size: 2.5rem;
-                margin-bottom: 3rem;
-                color: var(--text-color);
-            }
-
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        .benefit-item {
-            text-align: left;
-        }
-
-        .benefit-icon {
-            width: 60px;
-            height: 60px;
-            background-color: rgba(14, 165, 233, 0.1);
-            color: var(--accent-color);
-            font-size: 2rem;
+        .support-section {
+            max-width: 1000px;
+            width: 100%;
+            background-color: rgba(14, 165, 233, 0.05);
+            border: 1px solid var(--accent-color);
+            padding: 2rem;
+            border-radius: 10px;
+            margin-bottom: 3rem;
             display: flex;
             align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--accent-color);
+            gap: 2rem;
         }
 
-        .benefit-item h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-color);
+        .support-text {
+            flex: 1;
         }
 
-        .benefit-item p {
-            color: #94a3b8;
-            line-height: 1.6;
+            .support-text h3 {
+                color: var(--accent-color);
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .support-text p {
+                color: #94a3b8;
+                line-height: 1.6;
+            }
+
+        .support-image {
+            flex: 1;
+            height: 200px;
+            background: url('https://placehold.co/500x300/1e293b/f8fafc?text=Schemat+Topologii+KNX') center/cover no-repeat;
+            border-radius: 8px;
+            border: 1px solid #334155;
         }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            font-size: 1.1rem;
+            margin-top: 1rem;
+        }
+
+            .btn:hover {
+                background-color: var(--accent-hover);
+            }
+
 
         .contact {
             padding: 6rem 5%;
             text-align: center;
-            background-color: #0b1120;
+            background-color: #0f172a;
             border-top: 1px solid #334155;
         }
 
@@ -459,7 +342,6 @@
                 line-height: 1.5;
             }
 
-        /* --- FAQ STYLES --- */
         .faq-wrapper {
             max-width: 800px;
             margin: 0 auto 3rem auto;
@@ -602,7 +484,12 @@
             padding: 1rem;
         }
 
+
         @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
             .desktop-links {
                 display: none;
             }
@@ -611,43 +498,22 @@
                 display: flex;
             }
 
-            .hero h1 {
-                font-size: 3rem;
+            .b2b-grid {
+                grid-template-columns: 1fr;
             }
 
-            .hero-arrow {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-                .hero-arrow.prev {
-                    left: 10px;
-                }
-
-                .hero-arrow.next {
-                    right: 10px;
-                }
-
-            .contact-info {
+            .support-section {
                 flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-item {
-                width: 100%;
-                max-width: 400px;
-            }
-
-            .benefit-item {
                 text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
             }
 
-            .contact-form-wrapper {
-                padding: 2rem 1.5rem;
+            .support-image {
+                width: 100%;
+                height: 200px;
+            }
+
+            h1 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -655,15 +521,16 @@
 <body>
 
     <header>
-        <a href="#" class="logo">A<span class="plus">+</span> Tech</a>
+        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul class="desktop-links">
-                <li><a href="#home">Strona Główna</a></li>
-                <li><a href="#services">Oferta</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="index.html#home">Strona Główna</a></li>
+                <li><a href="index.html#services">Oferta</a></li>
+                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="index.html#contact">FAQ</a></li>
             </ul>
 
-            <a href="index-en.html" class="lang-switch">EN</a>
+            <a href="../en/Integration.html" class="lang-switch">EN</a>
 
             <button class="hamburger" id="hamburger">
                 <span></span>
@@ -673,72 +540,47 @@
         </nav>
 
         <ul class="dropdown-nav" id="dropdown-nav">
-            <li><a href="#home">Strona Główna</a></li>
-            <li><a href="#services">Oferta</a></li>
-            <li><a href="#contact">Kontakt</a></li>
-            <li><a href="faq-container">FAQ</a></li>
+            <li><a href="index.html#home">Strona Główna</a></li>
+            <li><a href="index.html#services">Oferta</a></li>
+            <li><a href="index.html#contact">Kontakt</a></li>
+            <li><a href="index.html#contact">FAQ</a></li>
         </ul>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-bg-slider">
-            <div class="hero-slide active" style="background-image: url('Images/FirstHome.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Images/SecondHome.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Images/ThirdHome.jpg');"></div>
+    <h1>Współpraca dla Profesjonalistów</h1>
+    <p class="intro">Zarabiaj więcej na nowoczesnych instalacjach bez konieczności spędzania godzin przed komputerem. Ty wykonujesz okablowanie i montaż, my dostarczamy projekt, sprzęt i zajmujemy się programowaniem.</p>
+
+    <div class="b2b-grid">
+        <div class="b2b-card">
+            <h2>Dla Instalatorów</h2>
+            <p>Rozszerz swoją ofertę o zaawansowane systemy KNX i Smart Home. Nie musisz być programistą, aby realizować inteligentne instalacje dla swoich klientów.</p>
+            <ul class="benefits">
+                <li>Jasny podział prac: Ty montujesz, my programujemy.</li>
+                <li>Wsparcie techniczne na każdym etapie budowy.</li>
+            </ul>
         </div>
 
-        <div class="hero-overlay"></div>
-
-        <button class="hero-arrow prev" onclick="moveHeroSlide(-1)">&#10094;</button>
-        <button class="hero-arrow next" onclick="moveHeroSlide(1)">&#10095;</button>
-
-        <div class="hero-content">
-            <h1>Inteligencja w <span>Twoim Domu</span></h1>
-            <p>Projektowanie, programowanie i wdrażanie systemów Smart Home. Przekształćmy zwykłe przestrzenie w inteligentne ekosystemy zarządzane z myślą o tobie.</p>
-            <a href="#contact" class="btn">Darmowa wycena</a>
+        <div class="b2b-card">
+            <h2>Dla Deweloperów</h2>
+            <p>Zwiększ prestiż i wartość rynkową swojej inwestycji. Klienci premium oczekują dziś czegoś więcej niż standardowej instalacji elektrycznej.</p>
+            <ul class="benefits">
+                <li>Pakiety "Smart Home Ready" w standardzie deweloperskim.</li>
+                <li>Przygotowanie infrastruktury pod przyszłą rozbudowę.</li>
+                <li>Wyróżnienie Twojej inwestycji na tle konkurencji.</li>
+                <li>Możliwość oferowania płatnych "pakietów rozszerzeń".</li>
+            </ul>
         </div>
-    </section>
+    </div>
 
-    <section class="benefits">
-        <h2>Dlaczego inteligentny dom?</h2>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <div class="benefit-icon">⚙️</div>
-                <h3>Niezawodność i Skalowalność</h3>
-                <p>Dzięki architekturze rozproszonej w KNX, awaria jednego elementu nie zatrzymuje całego systemu. Twój dom działa stabilnie, a instalację możesz w przyszłości łatwo rozbudować o nowe funkcje.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🔋</div>
-                <h3>Efektywność Energetyczna</h3>
-                <p>System zarządza ogrzewaniem, klimatyzacją i roletami w zależności od pogody i Twojej obecności. Automatyka dba o Twój komfort, jednocześnie stara się obniżać twoje wydatki.</p>
-            </div>
-            <div class="benefit-item">
-                <div class="benefit-icon">🛡️</div>
-                <h3>Spokój i Bezpieczeństwo</h3>
-                <p>Zintegrowane czujniki dymu, zalania i ruchu chronią Twój dobytek 24/7. Jeśli wyjedziesz na wakacje, dom uruchomi symulację obecności, odstraszając potencjalnych intruzów i wyśle powiadomienie na Twój telefon.</p>
-            </div>
+    <div class="support-section">
+        <div class="support-text">
+            <h3>Pełna Dokumentacja i Wytyczne</h3>
+            <p>Najważniejszym etapem inteligentnej instalacji jest prawidłowe położenie okablowania. Dostarczamy czytelne schematy, projekty rozdzielnic oraz wytyczne topologii magistrali KNX. Odpowiemy na pytania Twojej ekipy budowlanej, by uniknąć kosztownych błędów przed wylaniem posadzek i nałożeniem tynków.</p>
         </div>
-    </section>
+        <div class="support-image"></div>
+    </div>
 
-    <section id="services" class="services">
-        <h2>Wybierz swoją strefę</h2>
-        <p>Przygotowaliśmy informacje skrojone idealnie pod Twoje potrzeby.</p>
-
-        <div class="grid">
-            <a href="Automation.html" class="card">
-                <h3>Dla Klientów Indywidualnych</h3>
-                <p>Sprawdź, na co stać automatykę w Twoim domu. Oszczędność, komfort i bezpieczeństwo na co dzień.</p>
-            </a>
-            <a href="Designer.html" class="card">
-                <h3>Dla Projektantów</h3>
-                <p>Dodaj wnętrzom nowoczesnego i eleganckiego designu. Pozbądź się klawiatur ze ścian.</p>
-            </a>
-            <a href="Integration.html" class="card">
-                <h3>Dla Developerów (B2B)</h3>
-                <p>Ty robisz okablowanie, my zajmujemy się resztą. Sprawdź warunki współpracy integratorskiej.</p>
-            </a>
-        </div>
-    </section>
+    <a href="index.html" class="btn">Wróć na stronę główną</a>
 
     <section id="contact" class="contact">
         <h2>Rozpocznijmy projekt</h2>
@@ -767,24 +609,47 @@
             <div id="faq-container" class="faq-container">
                 <details class="faq-item">
                     <summary>Ile trwa realizacja projektu Smart Home?</summary>
-                    <p>Czas realizacji zależy od skomplikowania projektu i wielkości budynku. Średnio, od projektu do uruchomienia mija od kilku tygodni do kilku miesięcy, zgranych z harmonogramem prac budowlanych.</p>
+                    <p>
+                        Czas realizacji zależy od skomplikowania projektu i wielkości budynku.
+                        Średnio, od projektu do uruchomienia mija od kilku tygodni do kilku miesięcy,
+                        zgranych z harmonogramem prac budowlanych.
+                    </p>
                 </details>
 
                 <details class="faq-item">
                     <summary>Czy mogę sterować domem będąc na wakacjach?</summary>
-                    <p>Dostęp do budynku będąc poza zasięgiem jego sieci Wi-Fi jest możliwy poprzez dedykowane urządzenia (np. Gira S1) lub serwer VPN który podłączy nas z dowolnego miejsca w bezpieczny sposób do naszej domowej sieci.</p>
+                    <p>
+                        Dostęp do budynku będąc poza zasięgiem jego sieci Wi-Fi jest
+                        możliwy poprzez dedykowane urządzenia (np. Gira S1) lub serwer VPN
+                        który podłączy nas z dowolnego miejsca w bezpieczny sposób do naszej domowej sieci.
+                    </p>
                 </details>
 
                 <details class="faq-item">
                     <summary>Czy są jakieś inne rozwiązania niż przewodowe?</summary>
-                    <p> Rozwiązań na rynku jest wiele, od profesjonalnych po hobbystyczne (np. Home Assistant).</p>
-                    <p> Jeżeli mamy doczynienia z nowym budynkiem, najlepszym rozwiązaniem jest przewodowa werjsa KNX. W sytuacji gdy mamy klasyczną instalację, mamy do wyboru nakładki niektórych producentów (zasilane 230V, komunikacja po RF) do przycisków lub serię Simon Go, który idealnie się wpasuje w domu który nie był projektowany z myślą o automatyce.</p>
+                    <p>
+                        Oczywiście. Wybór technologii zależy od etapu, na którym znajduje się inwestycja:
+                    </p><p>
+                        Dla nowych budynków: Rekomendujemy stabilny, przewodowy standard KNX,
+                        który jest "fundamentem" inteligentnego domu.
+                    </p><p>
+                        Dla wykończonych wnętrz: Stosujemy rozwiązania bezprzewodowe (radiowe).
+                        Świetnie sprawdzają się tu systemy takie jak Simon GO czy profesjonalne nakładki na
+                        klasyczną instalację (zasilane 230V). Pozwalają one na szybką modernizację bez konieczności kucia ścian.
+                    </p>
                 </details>
 
                 <details class="faq-item">
                     <summary> Jaki jest to koszt? </summary>
                     <p>
-                        Koszt to kwestia bardzo indywidualna, zależna głównie od ilości obwodów którymi chcemy sterować. Rozwiązania budżetowe takie jak Simon Go do sterowania oświetleniem czy roletami to koszt ~200zl za przycisk. Przyciski KNX możemy znaleźć w podobnych cenach, jak i kilkukrotnie wyższych, zależnie od producenta.
+                        Budżet to kwestia bardzo indywidualna, uzależniona od liczby obwodów
+                        (punktów świetlnych, rolet, stref ogrzewania).
+                    </p><p>
+                        W rozwiązaniach budżetowych, jak Simon GO, koszt sterownika to około 200 PLN za punkt.
+                    </p><p>
+                        W systemie KNX rozpiętość cenowa jest większa – znajdziemy zarówno przyciski w podobnej cenie,
+                        jak i modele premium.
+                        Zawsze przygotowujemy wycenę w oparciu o konkretne potrzeby i wybrany standard wykończenia osprzętu.
                     </p>
                 </details>
             </div>
@@ -813,44 +678,33 @@
         </div>
 
     </section>
+    <!--<section id="contact" class="contact">
+        <h2>Rozpocznijmy projekt</h2>
+        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
 
-    <footer>
-        <p>&copy; 2026 ATTech - Programista Smart Home. Wszelkie prawa zastrzeżone.</p>
-    </footer>
+        <div class="contact-info">
+            <div class="contact-item">
+                <h4>Telefon</h4>
+                <p>+48 514 426 864</p>
+            </div>
+            <div class="contact-item">
+                <h4>E-mail</h4>
+                <p>kontakt@attech-smart.com</p>
+            </div>
+            <div class="contact-item">
+                <h4>Dane firmy</h4>
+                <i>Wkrótce</i> <br />
+                <s>NIP: 000-000-00-00 </s>
+                <p>Polska</p>
+            </div>
+        </div>-->
+    <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
+    <!--</section>-->
 
     <script>
-        let currentHeroIndex = 0;
-        const heroSlides = document.querySelectorAll('.hero-slide');
-        let heroTimer;
+        const hamburger = document.getElementById('hamburger');
+        const dropdownNav = document.getElementById('dropdown-nav');
 
-        function showHeroSlide(index) {
-            heroSlides.forEach(slide => slide.classList.remove('active'));
-            if (index >= heroSlides.length) currentHeroIndex = 0;
-            if (index < 0) currentHeroIndex = heroSlides.length - 1;
-            heroSlides[currentHeroIndex].classList.add('active');
-        }
-
-        function moveHeroSlide(step) {
-            currentHeroIndex += step;
-            showHeroSlide(currentHeroIndex);
-            resetHeroTimer(); 
-        }
-
-        function startHeroTimer() {
-            heroTimer = setInterval(() => {
-                currentHeroIndex++;
-                showHeroSlide(currentHeroIndex);
-            }, 5000); 
-        }
-
-        function resetHeroTimer() {
-            clearInterval(heroTimer);
-            startHeroTimer();
-        }
-
-        if (heroSlides.length > 0) {
-            startHeroTimer();
-        }
 
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');

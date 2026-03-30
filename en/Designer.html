@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -184,7 +184,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('Images/Frame-test.jpg') center/contain no-repeat;
+            background: url('../Images/Frame-test.jpg') center/contain no-repeat;
             clip-path: inset(0 0 0 0%);
             will-change: clip-path;
         }
@@ -195,7 +195,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('Images/Gira-test.jpg') center/contain no-repeat;
+            background: url('../Images/Gira-test.jpg') center/contain no-repeat;
             transition: background-image 0.3s ease-in-out;
             clip-path: inset(0 100% 0 0);
             will-change: clip-path;
@@ -234,10 +234,10 @@
 
         .slider-hint {
             position: absolute;
-            top: 65%; /* Umiejscowienie lekko pod środkowym kółkiem */
+            top: 65%; 
             left: 20%;
             transform: translateX(-50%);
-            background-color: rgba(15, 23, 42, 0.85); /* Półprzezroczyste granatowe tło */
+            background-color: rgba(15, 23, 42, 0.85); 
             color: #f8fafc;
             padding: 0.6rem 1.2rem;
             border-radius: 30px;
@@ -245,13 +245,13 @@
             font-weight: 500;
             letter-spacing: 0.5px;
             border: 1px solid var(--accent-color);
-            pointer-events: none; /* Pozwala kliknąć "przez" napis w suwak */
+            pointer-events: none; 
             z-index: 15;
             display: flex;
             align-items: center;
             gap: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-            transition: opacity 0.5s ease; /* Płynne znikanie */
+            transition: opacity 0.5s ease; 
             animation: pulseHint 2s infinite ease-in-out;
         }
 
@@ -290,7 +290,7 @@
             opacity: 0;
             position: absolute;
             top: 0;
-            right: 35px; /* Positioned to the left of the icon */
+            right: 35px;
             width: 200px;
             background-color: rgba(15, 23, 42, 0.95);
             color: white;
@@ -447,7 +447,7 @@
             padding: 6rem 5%;
             text-align: center;
             background-color: #0f172a;
-            border-top: 1px solid #0f172a;
+            border-top: 1px solid #334155;
         }
 
             .contact h2 {
@@ -493,10 +493,159 @@
                 font-size: 1.2rem;
             }
 
+            .contact-item p {
+                color: var(--text-color);
+                font-size: 1.05rem;
+                line-height: 1.5;
+            }
+
+        /* --- FAQ STYLES --- */
+        .faq-wrapper {
+            max-width: 800px;
+            margin: 0 auto 3rem auto;
+            text-align: left;
+        }
+
+        .faq-btn {
+            background-color: transparent;
+            border: 2px solid var(--accent-color);
+            color: var(--accent-color);
+            width: 100%;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+            .faq-btn:hover {
+                color: white;
+            }
+
+        .faq-container {
+            display: none;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+            .faq-container.active {
+                display: flex;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            transition: border-color 0.3s;
+        }
+
+            .faq-item:hover {
+                border-color: var(--accent-color);
+            }
+
+            .faq-item summary {
+                font-size: 1.1rem;
+                font-weight: bold;
+                color: var(--text-color);
+                cursor: pointer;
+                list-style: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+                .faq-item summary::-webkit-details-marker {
+                    display: none;
+                }
+
+                .faq-item summary::after {
+                    content: '+';
+                    color: var(--accent-color);
+                    font-size: 1.5rem;
+                    transition: transform 0.3s;
+                }
+
+            .faq-item[open] summary::after {
+                transform: rotate(45deg);
+            }
+
+            .faq-item p {
+                margin-top: 1rem;
+                color: #94a3b8;
+                line-height: 1.6;
+                border-top: 1px solid #334155;
+                padding-top: 1rem;
+            }
+
+        .contact-form-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 12px;
+            border: 1px solid #334155;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+            .contact-form-wrapper h3 {
+                color: var(--text-color);
+                font-size: 1.8rem;
+                margin-bottom: 2rem;
+                text-align: center;
+            }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+            .form-group label {
+                display: block;
+                margin-bottom: 0.5rem;
+                color: #94a3b8;
+                font-size: 0.95rem;
+            }
+
+        .form-control {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            border: 1px solid #334155;
+            color: var(--text-color);
+            font-size: 1rem;
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                outline: none;
+                border-color: var(--accent-color);
+                box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.2);
+            }
+
+        .contact-form .btn {
+            width: 100%;
+            margin-top: 1rem;
+            font-size: 1.1rem;
+            padding: 1rem;
+        }
         .tooltip {
             position: relative;
             display: inline-block;
-            border-bottom: 1px dotted black;         }
+            border-bottom: 1px dotted black;
+        }
 
             .tooltip .tooltiptext {
                 visibility: hidden;
@@ -508,9 +657,9 @@
                 padding: 5px;
                 position: absolute;
                 z-index: 25;
-                bottom: 125%; 
+                bottom: 125%;
                 left: 50%;
-                margin-left: -60px; 
+                margin-left: -60px;
                 opacity: 0;
                 transition: opacity 0.3s;
             }
@@ -521,14 +670,13 @@
             }
 
 
-        /* Responsywność */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
             }
 
-            .desktop-links{
-                display:none;
+            .desktop-links {
+                display: none;
             }
 
             .hamburger {
@@ -561,17 +709,17 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">A<span class="plus">+</span> Tech</a>
+        <a href="index.html" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul class="desktop-links">
-                <li><a href="index.html#home">Strona Główna</a></li>
-                <li><a href="index.html#services">Oferta</a></li>
-                <li><a href="index.html#contact">Kontakt</a></li>
+                <li><a href="index.html#home">Home Page</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
                 <li><a href="index.html#contact">FAQ</a></li>
+
             </ul>
 
-            <a href="Designer-en.html" class="lang-switch">EN</a>
-
+            <a href="Designer.html" class="lang-switch">PL</a>
             <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -580,20 +728,21 @@
         </nav>
 
         <ul class="dropdown-nav" id="dropdown-nav">
-            <li><a href="index.html#home">Strona Główna</a></li>
-            <li><a href="index.html#services">Oferta</a></li>
-            <li><a href="index.html#contact">Kontakt</a></li>
+            <li><a href="index.html#home">Home Page</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
             <li><a href="index.html#contact">FAQ</a></li>
         </ul>
-    </header>
 
+
+    </header>
 
     <div class="comparison-slider">
         <div class="info-icon-wrapper">
             <span class="info-icon">?</span>
             <div class="info-tooltip">
-                Zdjęcia zostały opracowane przez Nano Banana 2 na podstawie zdjęć producenta.
-                Zachowano realistyczne odzwierciedlenie przycisków, jednak proporcję pomiędzy różnymi przyciskami mogą się różnić.
+                Images were developed by Nano Banana 2 based on manufacturer photos.
+                Realistic representation of buttons has been maintained, however, proportions between different devices may vary.
             </div>
         </div>
 
@@ -602,48 +751,48 @@
         <div class="slider-handle"></div>
 
         <div class="slider-hint" id="slider-hint">
-            <span>⟵</span> Przesuń by porównać <span>⟶</span>
+            <span>⟵</span> Slide to compare <span>⟶</span>
         </div>
 
-        <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Porównaj zdjęcia">
+        <input type="range" min="0" max="100" value="50" class="slider-input" aria-label="Compare photos">
     </div>
 
     <div class="manufacturer-options">
-        <p>Sprawdź, jak może wyglądać Twoja ściana z różnymi producentami osprzętu KNX:</p>
+        <p>See how your wall could look with different KNX hardware manufacturers:</p>
 
         <div class="controls-wrapper">
-            <button class="btn-style active" data-img="url('Images/Gira-test.jpg')" data-link="https://partner.gira.com/pl_PL/index.html">Gira</button>
-            <button class="btn-style" data-img="url('Images/Basalte-test.jpg')" data-link="https://www.basalte.be/en">Basalte</button>
-            <button class="btn-style" data-img="url('Images/Jung-test.jpg')" data-link="https://jungteam.pl/">Jung</button>
-            <button class="btn-style" data-img="url('Images/Ekinex-test.jpg')" data-link="https://www.ekinex.com/en/">Ekinex</button>
+            <button class="btn-style active" data-img="url('../Images/Gira-test.jpg')" data-link="https://partner.gira.com/pl_PL/index.html">Gira</button>
+            <button class="btn-style" data-img="url('../Images/Basalte-test.jpg')" data-link="https://www.basalte.be/en">Basalte</button>
+            <button class="btn-style" data-img="url('../Images/Jung-test.jpg')" data-link="https://jungteam.pl/">Jung</button>
+            <button class="btn-style" data-img="url('../Images/Ekinex-test.jpg')" data-link="https://www.ekinex.com/en/">Ekinex</button>
 
             <a href="https://partner.gira.com/pl_PL/index.html" target="_blank" class="external-link" id="manufacturer-link">
-                Strona producenta ↗
+                Manufacturer website ↗
             </a>
         </div>
     </div>
 
-
-    <h1>Współpraca z Projektantami Wnętrz</h1>
+    <h1>Collaboration with Interior Designers</h1>
 
     <div class="content-box">
-        <p>Technologia Smart Home to nie tylko wygoda dla inwestora, ale także potężne narzędzie w rękach architekta. Wspólnie możemy zredukować chaos instalacyjny na ścianach i zastąpić go minimalistyczną elegancją, która idealnie wpisze się w Twoją wizję wnętrza.</p>
+        <p>Smart Home technology is not only a convenience for the investor but also a powerful tool in the hands of an architect. Together, we can reduce installation chaos on walls and replace it with minimalist elegance that fits perfectly into your interior vision.</p>
 
         <ul class="features">
-            <li><strong>Koniec z "klawiaturami" na ścianach:</strong> Zamiast rzędów pięciu czy sześciu tradycyjnych włączników w nieestetycznych, wielokrotnych ramkach, stosujemy jeden, zintegrowany panel sterujący. Jeden elegancki przycisk potrafi zarządzać oświetleniem, roletami, klimatyzacją i scenami świetlnymi.</li>
-            <li><strong>Ekskluzywny design i materiały:</strong> Inteligentne włączniki dostępne są w najwyższej jakości wykończeniach – od szczotkowanego aluminium i szkła, po mosiądz, kamień czy naturalne drewno. Dzięki temu osprzęt elektryczny staje się ozdobą, a nie koniecznością.</li>
-            <li><strong>Czyste ściany:</strong> Termostaty, czujniki temperatury i sensory ruchu możemy zamaskować lub zintegrować bezpośrednio we włącznikach, pozostawiając przestrzeń maksymalnie czystą i spójną.</li>
+            <li><strong>End the wall "clutter":</strong> Instead of rows of five or six traditional switches in unsightly multi-gang frames, we use a single, integrated control panel. One elegant button can manage lighting, blinds, air conditioning, and light scenes.</li>
+            <li><strong>Exclusive design and materials:</strong> Smart switches are available in premium finishes – from brushed aluminum and glass to brass, stone, or natural wood. This makes electrical fittings a decorative element rather than a necessity.</li>
+            <li><strong>Clean walls:</strong> Thermostats, temperature sensors, and motion sensors can be concealed or integrated directly into the switches, leaving the space exceptionally clean and consistent.</li>
         </ul>
     </div>
 
-    <a href="index.html" class="btn">Wróć na stronę główną</a>
+    <a href="index-en.html" class="btn">Back to Home Page</a>
+
     <section id="contact" class="contact">
-        <h2>Rozpocznijmy projekt</h2>
-        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
+        <h2>Let's get started</h2>
+        <p class="desc">Are you wondering how we can improve your home, or are you looking for a reliable integrator? Email or call us.</p>
 
         <div class="contact-info">
             <div class="contact-item">
-                <h4>Telefon</h4>
+                <h4>Phone</h4>
                 <p>+48 514 426 864</p>
             </div>
             <div class="contact-item">
@@ -651,13 +800,91 @@
                 <p>kontakt@attech-smart.com</p>
             </div>
             <div class="contact-item">
-                <h4>Dane firmy</h4>
-                <i>Wkrótce</i> <br />
+                <h4>Company information</h4>
+                <i>Coming soon</i> <br />
                 <s>NIP: 000-000-00-00 </s>
-                <p>Polska</p>
+                <p>Poland</p>
             </div>
         </div>
 
+        <div class="faq-wrapper">
+            <button id="faq-toggle" class="btn faq-btn">Frequently Asked Questions (FAQ) ▼</button>
+
+            <div id="faq-container" class="faq-container">
+                <details class="faq-item">
+                    <summary>How long does a Smart Home project take to complete?</summary>
+                    <p>
+                        The implementation time depends on the complexity of the project and the size of the building.
+                        On average, from design to commissioning it takes from a few weeks to several months,
+                        aligned with the construction schedule.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Can I control my home while on vacation?</summary>
+                    <p>
+                        Access to the building while outside its Wi-Fi network range
+                        is possible via dedicated devices (e.g., Gira S1) or a VPN server
+                        that securely connects you to your home network from anywhere in the world.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>Are there any alternatives to wired solutions?</summary>
+                    <p>
+                        Of course. The choice of technology depends on the stage of the investment:
+                    </p>
+                    <p>
+                        For new buildings: We recommend the stable, wired KNX standard,
+                        which serves as the "foundation" of a smart home.
+                    </p>
+                    <p>
+                        For finished interiors: We use wireless (radio-based) solutions.
+                        Systems such as Simon GO or professional retrofit modules for
+                        traditional electrical installations (powered by 230V) work very well here.
+                        They allow for quick modernization without the need to cut into walls.
+                    </p>
+                </details>
+
+                <details class="faq-item">
+                    <summary>What is the cost?</summary>
+                    <p>
+                        The budget is highly individual and depends on the number of circuits
+                        (lighting points, blinds, heating zones).
+                    </p>
+                    <p>
+                        In budget-friendly solutions like Simon GO, the cost of a controller is around 200 PLN per point.
+                    </p>
+                    <p>
+                        In the KNX system, the price range is broader – you can find both switches at a similar price
+                        and premium models.
+                        We always prepare a quotation based on specific needs and the selected finishing standard of the fittings.
+                    </p>
+                </details>
+            </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+            <h3>Send us a message</h3>
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your Name / Company Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="ex. John Smith" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe briefly your project or ask us a question..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn">Send</button>
+            </form>
+        </div>
     </section>
     <script>
         const sliderInput = document.querySelector('.slider-input');
@@ -667,9 +894,8 @@
         const sliderHint = document.getElementById('slider-hint');
 
         function hideHint() {
-            if (sliderHint.style.opacity !== '0') {
+            if (sliderHint && sliderHint.style.opacity !== '0') {
                 sliderHint.style.opacity = '0';
-                // Usuwamy element całkowicie z kodu po 0.5s (gdy skończy się animacja znikania)
                 setTimeout(() => sliderHint.remove(), 500);
             }
         }
@@ -679,8 +905,6 @@
             imgAfter.style.clipPath = `inset(0 calc(100% - ${sliderValue}%) 0 0)`;
             imgBefore.style.clipPath = `inset(0 0 0 ${sliderValue}%)`;
             sliderHandle.style.left = `${sliderValue}%`;
-
-            // Ukryj podpowiedź przy pierwszym ruchu suwakiem
             hideHint();
         });
         const hamburger = document.getElementById('hamburger');
@@ -713,7 +937,21 @@
                 manufacturerLink.href = newLink;
             });
         });
-    </script>
 
+        const faqToggle = document.getElementById('faq-toggle');
+        const faqContainer = document.getElementById('faq-container');
+
+        if (faqToggle && faqContainer) {
+            faqToggle.addEventListener('click', () => {
+                faqContainer.classList.toggle('active');
+
+                if (faqContainer.classList.contains('active')) {
+                    faqToggle.innerHTML = 'Schowaj FAQ ▲';
+                } else {
+                    faqToggle.innerHTML = 'Najczęściej zadawane pytania (FAQ) ▼';
+                }
+            });
+        }
+    </script>
 </body>
 </html>

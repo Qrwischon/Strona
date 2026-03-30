@@ -658,14 +658,14 @@
         <a href="#" class="logo">A<span class="plus">+</span> Tech</a>
         <nav>
             <ul class="desktop-links">
-                <li><a href="#home">Strona Główna</a></li>
-                <li><a href="#services">Oferta</a></li>
-                <li><a href="#contact">Kontakt</a></li>
+                <li><a href="#home">Home Page</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
                 <li><a href="#contact">FAQ</a></li>
+
             </ul>
 
-            <a href="index-en.html" class="lang-switch">EN</a>
-
+            <a href="../pl/index.html" class="lang-switch">PL</a>
             <button class="hamburger" id="hamburger">
                 <span></span>
                 <span></span>
@@ -674,18 +674,20 @@
         </nav>
 
         <ul class="dropdown-nav" id="dropdown-nav">
-            <li><a href="#home">Strona Główna</a></li>
-            <li><a href="#services">Oferta</a></li>
-            <li><a href="#contact">Kontakt</a></li>
+            <li><a href="#home">Home Page</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
             <li><a href="faq-container">FAQ</a></li>
         </ul>
+
+
     </header>
 
     <section id="home" class="hero">
         <div class="hero-bg-slider">
-            <div class="hero-slide active" style="background-image: url('Images/FirstHome.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Images/SecondHome.jpg');"></div>
-            <div class="hero-slide" style="background-image: url('Images/ThirdHome.jpg');"></div>
+            <div class="hero-slide active" style="background-image: url('../Images/FirstHome.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('../Images/SecondHome.jpg');"></div>
+            <div class="hero-slide" style="background-image: url('../Images/ThirdHome.jpg');"></div>
         </div>
 
         <div class="hero-overlay"></div>
@@ -694,60 +696,84 @@
         <button class="hero-arrow next" onclick="moveHeroSlide(1)">&#10095;</button>
 
         <div class="hero-content">
-            <h1>Inteligencja w <span>Twoim Domu</span></h1>
-            <p>Projektowanie, programowanie i wdrażanie systemów Smart Home. Przekształćmy zwykłe przestrzenie w inteligentne ekosystemy zarządzane z myślą o tobie.</p>
-            <a href="#contact" class="btn">Darmowa wycena</a>
+            <h1><span>Smart Home</span> Solutions</h1>
+            <p>Design, programming and implementation of Smart Home systems. Let's transform ordinary spaces into smart ecosystems designed with you in mind.</p>
+            <a href="#contact" class="btn">Free quote</a>
         </div>
     </section>
 
     <section class="benefits">
-        <h2>Dlaczego inteligentny dom?</h2>
+        <h2>Why Smart Home?</h2>
         <div class="benefits-grid">
             <div class="benefit-item">
                 <div class="benefit-icon">⚙️</div>
-                <h3>Niezawodność i Skalowalność</h3>
-                <p>Dzięki architekturze rozproszonej w KNX, awaria jednego elementu nie zatrzymuje całego systemu. Twój dom działa stabilnie, a instalację możesz w przyszłości łatwo rozbudować o nowe funkcje.</p>
+                <h3>Reliabity and Scalability</h3>
+                <p> Thanks to KNX's distributed architecture, a failure of one component does not bring the entire system to a halt. Your home operates reliably, and you can easily expand the system with new features in the future. </p>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon">🔋</div>
-                <h3>Efektywność Energetyczna</h3>
-                <p>System zarządza ogrzewaniem, klimatyzacją i roletami w zależności od pogody i Twojej obecności. Automatyka dba o Twój komfort, jednocześnie stara się obniżać twoje wydatki.</p>
+                <h3>Energy Efficiency</h3>
+                <p>The system manages heating, air conditioning, and blinds based on the weather and your presence. The automation ensures your comfort while helping to reduce your expenses.</p>
             </div>
             <div class="benefit-item">
                 <div class="benefit-icon">🛡️</div>
-                <h3>Spokój i Bezpieczeństwo</h3>
-                <p>Zintegrowane czujniki dymu, zalania i ruchu chronią Twój dobytek 24/7. Jeśli wyjedziesz na wakacje, dom uruchomi symulację obecności, odstraszając potencjalnych intruzów i wyśle powiadomienie na Twój telefon.</p>
+                <h3>Peace of Mind and Security</h3>
+                <p>Integrated smoke, flood, and motion sensors protect your belongings 24/7. If you go on vacation, the system will activate an occupancy simulation to deter potential intruders and send a notification to your phone.</p>
             </div>
         </div>
     </section>
 
+    <!--<section id="technologies" class="tech-section">
+        <h2>Technologie, z którymi pracuję</h2>
+        <p>Nie opieram się na półśrodkach i marketowych gadżetach. Tworzę instalacje bazujące na światowych, profesjonalnych standardach przewodowych.</p>
+
+        <div class="tech-grid">
+            <div class="tech-item">
+                KNX
+                <span>Światowy standard automatyki </span>
+                <span>Korzystaj z osprzętu prawie 500 producentów.</span>
+            </div>
+            <div class="tech-item">
+                Kontakt Simon
+                <span></span>
+            </div>
+            <div class="tech-item">
+                Satel
+                <span>Systemy alarmowe</span>
+            </div>
+        </div>
+    </section>-->
+
     <section id="services" class="services">
-        <h2>Wybierz swoją strefę</h2>
-        <p>Przygotowaliśmy informacje skrojone idealnie pod Twoje potrzeby.</p>
+        <h2>Select your region</h2>
+        <p>We've prepared information tailored perfectly to your needs.</p>
 
         <div class="grid">
             <a href="Automation.html" class="card">
-                <h3>Dla Klientów Indywidualnych</h3>
-                <p>Sprawdź, na co stać automatykę w Twoim domu. Oszczędność, komfort i bezpieczeństwo na co dzień.</p>
+                <h3>For Private Clients</h3>
+                <p>See what home automation can do for your home. Savings, comfort, and safety every day.</p>
             </a>
             <a href="Designer.html" class="card">
-                <h3>Dla Projektantów</h3>
-                <p>Dodaj wnętrzom nowoczesnego i eleganckiego designu. Pozbądź się klawiatur ze ścian.</p>
+                <h3>For Designers</h3>
+                <p>Add a modern and elegant design to your interiors. Get rid of wall-mounted control panels.</p>
             </a>
             <a href="Integration.html" class="card">
-                <h3>Dla Developerów (B2B)</h3>
-                <p>Ty robisz okablowanie, my zajmujemy się resztą. Sprawdź warunki współpracy integratorskiej.</p>
+                <h3>For Developers (B2B)</h3>
+                <p>You handle the wiring; we take care of the rest. Check out our integration partnership terms.</p>
             </a>
         </div>
     </section>
 
+
+
+
     <section id="contact" class="contact">
-        <h2>Rozpocznijmy projekt</h2>
-        <p class="desc">Zastanawiasz się, jak możemy usprawnić Twój dom lub szukasz niezawodnego integratora? Napisz lub zadzwoń.</p>
+        <h2>Let's get started</h2>
+        <p class="desc">Are you wondering how we can improve your home, or are you looking for a reliable integrator? Email or call us.</p>
 
         <div class="contact-info">
             <div class="contact-item">
-                <h4>Telefon</h4>
+                <h4>Phone</h4>
                 <p>+48 514 426 864</p>
             </div>
             <div class="contact-item">
@@ -755,91 +781,95 @@
                 <p>kontakt@attech-smart.com</p>
             </div>
             <div class="contact-item">
-                <h4>Dane firmy</h4>
-                <i>Wkrótce</i> <br />
+                <h4>Company information</h4>
+                <i>Coming soon</i> <br />
                 <s>NIP: 000-000-00-00 </s>
-                <p>Polska</p>
+                <p>Poland</p>
             </div>
         </div>
 
         <div class="faq-wrapper">
-            <button id="faq-toggle" class="btn faq-btn">Najczęściej zadawane pytania (FAQ) ▼</button>
+            <button id="faq-toggle" class="btn faq-btn">Frequently Asked Questions (FAQ) ▼</button>
 
             <div id="faq-container" class="faq-container">
                 <details class="faq-item">
-                    <summary>Ile trwa realizacja projektu Smart Home?</summary>
+                    <summary>How long does a Smart Home project take to complete?</summary>
                     <p>
-                        Czas realizacji zależy od skomplikowania projektu i wielkości budynku.
-                        Średnio, od projektu do uruchomienia mija od kilku tygodni do kilku miesięcy,
-                        zgranych z harmonogramem prac budowlanych.
+                        The implementation time depends on the complexity of the project and the size of the building.
+                        On average, from design to commissioning it takes from a few weeks to several months,
+                        aligned with the construction schedule.
                     </p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Czy mogę sterować domem będąc na wakacjach?</summary>
+                    <summary>Can I control my home while on vacation?</summary>
                     <p>
-                        Dostęp do budynku będąc poza zasięgiem jego sieci Wi-Fi jest
-                        możliwy poprzez dedykowane urządzenia (np. Gira S1) lub serwer VPN
-                        który podłączy nas z dowolnego miejsca w bezpieczny sposób do naszej domowej sieci.
+                        Access to the building while outside its Wi-Fi network range
+                        is possible via dedicated devices (e.g., Gira S1) or a VPN server
+                        that securely connects you to your home network from anywhere in the world.
                     </p>
                 </details>
 
                 <details class="faq-item">
-                    <summary>Czy są jakieś inne rozwiązania niż przewodowe?</summary>
+                    <summary>Are there any alternatives to wired solutions?</summary>
                     <p>
-                        Oczywiście. Wybór technologii zależy od etapu, na którym znajduje się inwestycja:
-                    </p><p>
-                        Dla nowych budynków: Rekomendujemy stabilny, przewodowy standard KNX,
-                        który jest "fundamentem" inteligentnego domu.
-                    </p><p>
-                        Dla wykończonych wnętrz: Stosujemy rozwiązania bezprzewodowe (radiowe).
-                        Świetnie sprawdzają się tu systemy takie jak Simon GO czy profesjonalne nakładki na
-                        klasyczną instalację (zasilane 230V). Pozwalają one na szybką modernizację bez konieczności kucia ścian.
+                        Of course. The choice of technology depends on the stage of the investment:
+                    </p>
+                    <p>
+                        For new buildings: We recommend the stable, wired KNX standard,
+                        which serves as the "foundation" of a smart home.
+                    </p>
+                    <p>
+                        For finished interiors: We use wireless (radio-based) solutions.
+                        Systems such as Simon GO or professional retrofit modules for
+                        traditional electrical installations (powered by 230V) work very well here.
+                        They allow for quick modernization without the need to cut into walls.
                     </p>
                 </details>
 
                 <details class="faq-item">
-                    <summary> Jaki jest to koszt? </summary>
+                    <summary>What is the cost?</summary>
                     <p>
-                        Budżet to kwestia bardzo indywidualna, uzależniona od liczby obwodów
-                        (punktów świetlnych, rolet, stref ogrzewania).
-                    </p><p>
-                        W rozwiązaniach budżetowych, jak Simon GO, koszt sterownika to około 200 PLN za punkt.
-                    </p><p>
-                        W systemie KNX rozpiętość cenowa jest większa – znajdziemy zarówno przyciski w podobnej cenie,
-                        jak i modele premium.
-                        Zawsze przygotowujemy wycenę w oparciu o konkretne potrzeby i wybrany standard wykończenia osprzętu.
+                        The budget is highly individual and depends on the number of circuits
+                        (lighting points, blinds, heating zones).
+                    </p>
+                    <p>
+                        In budget-friendly solutions like Simon GO, the cost of a controller is around 200 PLN per point.
+                    </p>
+                    <p>
+                        In the KNX system, the price range is broader – you can find both switches at a similar price
+                        and premium models.
+                        We always prepare a quotation based on specific needs and the selected finishing standard of the fittings.
                     </p>
                 </details>
             </div>
         </div>
 
         <div class="contact-form-wrapper">
-            <h3>Wyślij wiadomość online</h3>
+            <h3>Send us a message</h3>
             <form action="#" method="POST" class="contact-form">
                 <div class="form-group">
-                    <label for="name">Imię i nazwisko / Nazwa firmy</label>
-                    <input type="text" id="name" name="name" class="form-control" placeholder="np. Jan Kowalski" required>
+                    <label for="name">Your Name / Company Name</label>
+                    <input type="text" id="name" name="name" class="form-control" placeholder="ex. John Smith" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="email">Adres e-mail</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="jan@example.com" required>
+                    <label for="email">E-mail address</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="john@example.com" required>
                 </div>
 
                 <div class="form-group">
-                    <label for="message">Wiadomość</label>
-                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Opisz krótko swój projekt lub zadaj pytanie..." required></textarea>
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" class="form-control" placeholder="Describe briefly your project or ask us a question..." required></textarea>
                 </div>
 
-                <button type="submit" class="btn">Wyślij zapytanie</button>
+                <button type="submit" class="btn">Send</button>
             </form>
         </div>
-
     </section>
 
     <footer>
-        <p>&copy; 2026 ATTech - Programista Smart Home. Wszelkie prawa zastrzeżone.</p>
+        <p>&copy; 2026 ATTech - Smart Home Programmer. All rights reserved</p>
     </footer>
 
     <script>
@@ -907,5 +937,9 @@
             });
         }
     </script>
+
+
+
+
 </body>
 </html>
