@@ -131,17 +131,18 @@
             padding: 2rem 0;
             gap: 1.5rem;
             align-items: center;
-            transform: translateY(-150%);
+            transform: translateY(-20px);
+            visibility: hidden;
             opacity: 0;
             transition: all 0.3s ease-in-out;
             border-bottom: 1px solid #334155;
-            backdrop-filter: blur(10px);
             pointer-events: none;
-            z-index: 999;
+            z-index: -1;
         }
 
             .dropdown-nav.active {
                 transform: translateY(0);
+                visibility: visible;
                 opacity: 1;
                 pointer-events: auto;
             }
@@ -657,7 +658,6 @@
             </div>
         </div>
 
-        <!--<a href="mailto:kontakt@attech.pl" class="btn">Wyślij szybką wiadomość</a>-->
     </section>
     <script>
         const sliderInput = document.querySelector('.slider-input');
@@ -666,7 +666,6 @@
         const sliderHandle = document.querySelector('.slider-handle');
         const sliderHint = document.getElementById('slider-hint');
 
-        // Funkcja usuwająca podpowiedź
         function hideHint() {
             if (sliderHint.style.opacity !== '0') {
                 sliderHint.style.opacity = '0';
